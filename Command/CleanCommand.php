@@ -8,7 +8,7 @@ use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\DirScanner\DirScanner;
-
+use Ling\Uni2\Helper\OutputHelper as H;
 
 /**
  * The CleanCommand class.
@@ -31,7 +31,7 @@ class CleanCommand extends UniToolGenericCommand
     public function run(InputInterface $input, OutputInterface $output)
     {
 
-
+        $indentLevel = 0;
         $filesToRemove = [];
         $sCleanItems = $this->application->getConfValue("clean_items", "");
         $entriesToRemove = array_map(function ($v) {
@@ -50,16 +50,28 @@ class CleanCommand extends UniToolGenericCommand
         //--------------------------------------------
         // COLLECTING FROM PLANETS
         //--------------------------------------------
+
         $universeDir = $this->application->getUniverseDirectory();
-        $scanner = DirScanner::create();
-        $scanner->scanDir($universeDir, $callable);
+        if (is_dir($universeDir)) {
+            H::info(H::i($indentLevel) . "Cleaning items from the <bold>universe</bold> directory ($universeDir)." . PHP_EOL, $output);
+            $scanner = DirScanner::create();
+            $scanner->scanDir($universeDir, $callable);
+        } else {
+            H::warning(H::i($indentLevel) . "Clean command: the <bold>universe</bold> directory wasn't found at $universeDir." . PHP_EOL, $output);
+        }
 
 
         //--------------------------------------------
         // COLLECTING FROM DEPENDENCIES
         //--------------------------------------------
         $universeDepDir = $this->application->getUniverseDependenciesDir();
-        $scanner->scanDir($universeDepDir, $callable);
+        if (is_dir($universeDepDir)) {
+            H::info(H::i($indentLevel) . "Cleaning items from the <bold>universe-dependencies</bold> directory ($universeDepDir)." . PHP_EOL, $output);
+            $scanner->scanDir($universeDepDir, $callable);
+        }
+        else{
+//            H::warning(H::i($indentLevel) . "Clean command: the <bold>universe-dependencies</bold> directory wasn't found at $universeDepDir." . PHP_EOL, $output);
+        }
 
 
         //--------------------------------------------

@@ -66,7 +66,7 @@ class CheckCommand extends UniToolGenericCommand
         $unresolvedDependencyPlanets = [];
 
 
-        $universeDir = $this->application->getUniverseDirectory();
+        $universeDir = $this->application->checkUniverseDirectory();
         $universeDependencyDir = $this->application->getUniverseDependenciesDir();
         $planetDirs = PlanetTool::getPlanetDirs($universeDir);
 

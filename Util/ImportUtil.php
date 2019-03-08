@@ -96,6 +96,19 @@ class ImportUtil
         $indentLevel = $options['indentLevel'] ?? 0;
 
 
+
+        //--------------------------------------------
+        // BOOT THE UNIVERSE IF IT DOESN'T EXIST
+        //--------------------------------------------
+        $universeDir = $this->application->getUniverseDirectory();
+
+
+
+
+
+        //--------------------------------------------
+        // PROCEED WITH THE IMPORT PLANET
+        //--------------------------------------------
         $planetComponents = PlanetTool::getGalaxyNamePlanetNameByPlanetName($longPlanetName);
         if (false !== $planetComponents) {
             list($galaxy, $planetShortName) = $planetComponents;
@@ -105,6 +118,7 @@ class ImportUtil
              * TODO: HERE
              *
              *
+             * upgrade command.
              * uni import should create universe if not exist
              * do tcpdf, swift
              */

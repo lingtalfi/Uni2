@@ -5,13 +5,11 @@ namespace Ling\Uni2\Command\Internal;
 
 
 use Ling\Bat\FileSystemTool;
+use Ling\CliTools\Input\ArrayInput;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
-use Ling\DirScanner\DirScanner;
 use Ling\Uni2\Command\UniToolGenericCommand;
 use Ling\Uni2\Helper\OutputHelper as H;
-use Ling\Uni2\Util\ImportUtil;
-use Ling\UniverseTools\DependencyTool;
 
 
 /**
@@ -90,63 +88,36 @@ class PackUni2Command extends UniToolGenericCommand
                     H::info(H::i($indentLevel + 1) . "Copying <bold>uni-skeleton</bold> directory to <bold>$path</bold>" . PHP_EOL, $output);
                     FileSystemTool::copyDir($skeletonDir, $path);
 
-                    az($skeletonDir);
+
+                    //--------------------------------------------
+                    // IMPORT PLANETS
+                    //--------------------------------------------
+                    $myInput = new ArrayInput();
+                    $myInput->setItems([
+                        "application-dir" => $path,
+                        ":import-map" => true,
+                        "-f" => true,
+                    ]);
+                    $this->application->run($myInput, $output);
 
 
-                    $universeDir = $this->application->getUniverseDirectory();
-                    $uni2Dir = $universeDir . "/Ling/Uni2";
-                    if (is_dir($uni2Dir)) {
-
-                        //--------------------------------------------
-                        // DOWNLOAD LATEST VERSIONS OF DEPENDENCIES
-                        //--------------------------------------------
-                        $deps = DependencyTool::getDependencyList($uni2Dir);
-
-                        H::discover(H::i($indentLevel) . "Found " . count($deps) . " dependencies to import to the internal-universe of Uni2:" . PHP_EOL, $output);
-
-
-                        $deps[] = [
-                            "Ling",
-                            "BumbleBee",
-                        ];
+                    //--------------------------------------------
+                    // CLEAN PLANETS
+                    //--------------------------------------------
+                    $myInput = new ArrayInput();
+                    $myInput->setItems([
+                        "application-dir" => $path,
+                        ":clean" => true,
+                    ]);
+                    $this->application->run($myInput, $output);
 
 
-                        $util = new ImportUtil();
-                        foreach ($deps as $dep) {
-                            list($galaxy, $planetName) = $dep;
-                            $replacedPlanetDir = $internalUniverseDir . "/$galaxy/$planetName";
+                    $cmdPath = rtrim($path, '/') . "/uni.php";
 
-                            $util->importPlanet($galaxy . '/' . $planetName, $this->application, $output, [
-                                "indentLevel" => $indentLevel + 1,
-                                "forceMode" => false,
-                                "importMode" => "reimport",
-                                "_appReplacedItemDir" => $replacedPlanetDir,
-                            ]);
-                        }
+                    H::success(H::i($indentLevel) . "The <bold>uni-tools</bold> directory is now ready." . PHP_EOL, $output);
+                    H::success(H::i($indentLevel) . "You can use it with: <black:bgWhite>php -f \"$cmdPath\" -- help</black:bgWhite>" . PHP_EOL, $output);
 
 
-                        //--------------------------------------------
-                        // CLEAN THE DOWNLOADED PLANETS
-                        //--------------------------------------------
-                        $entriesToRemove = [
-                            ".git",
-                            ".gitignore",
-                        ];
-                        $internalUniverseDir = realpath($internalUniverseDir);
-                        H::info(H::i($indentLevel) . "Cleaning the <bold>internal-universe</bold> directory from <bold>.git</bold> and <bold>.gitignore</bold> files...", $output);
-                        $scanner = DirScanner::create();
-                        $scanner->scanDir($internalUniverseDir, function ($path, $rPath, $level) use ($entriesToRemove) {
-                            $file = basename($path);
-                            if (in_array($file, $entriesToRemove, true)) {
-                                FileSystemTool::remove($path);
-                            }
-                        });
-                        $output->write("<success>ok</success>." . PHP_EOL);
-
-
-                    } else {
-                        H::error(H::i($indentLevel) . "The <bold>Uni2</bold> directory was not found!!" . PHP_EOL, $output);
-                    }
                 } else {
                     H::error(H::i($indentLevel) . "The <bold>uni-skeleton</bold> directory was not found!!" . PHP_EOL, $output);
                 }

@@ -50,6 +50,10 @@ class ReimportUniverseCommand extends UniToolGenericCommand
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
+
+        $this->application->bootUniverse($output);
+
+
         $indentLevel = 0;
         $forceMode = $input->hasFlag("f");
 

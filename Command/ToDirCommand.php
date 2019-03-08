@@ -81,7 +81,7 @@ class ToDirCommand extends UniToolGenericCommand
         //--------------------------------------------
         // PLANETS
         //--------------------------------------------
-        $universeDir = $this->application->getUniverseDirectory();
+        $universeDir = $this->application->checkUniverseDirectory();
         $planetDirs = PlanetTool::getPlanetDirs($universeDir);
         $localServer = $this->application->getLocalServer();
         if ($localServer->exists()) {

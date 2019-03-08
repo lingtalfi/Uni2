@@ -80,7 +80,7 @@ class CreateMapCommand extends UniToolGenericCommand
 
         $mapPath = $input->getParameter(2);
         if (null === $mapPath) {
-            $mapPath = $this->application->getUniverseDirectory() . "/map.byml";
+            $mapPath = $this->application->checkUniverseDirectory() . "/map.byml";
         }
 
 
@@ -95,7 +95,7 @@ class CreateMapCommand extends UniToolGenericCommand
 
             $conf = [];
             H::info(H::i($indentLevel) . "Creating the map at <bold>$mapPath</bold>." . PHP_EOL, $output);
-            $universeDir = $this->application->getUniverseDirectory();
+            $universeDir = $this->application->checkUniverseDirectory();
             $planetDirs = PlanetTool::getPlanetDirs($universeDir);
             foreach ($planetDirs as $planetDir) {
                 $pInfo = PlanetTool::getGalaxyNamePlanetNameByDir($planetDir);

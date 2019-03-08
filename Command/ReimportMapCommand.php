@@ -98,6 +98,10 @@ class ReimportMapCommand extends UniToolGenericCommand
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
+
+        $this->application->bootUniverse($output);
+
+
         $forceMode = $input->hasFlag("f");
         $indentLevel = 0;
 

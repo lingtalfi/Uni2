@@ -5,9 +5,10 @@ namespace Ling\Uni2\Application;
 
 
 use Ling\BabyYaml\BabyYamlUtil;
-use Ling\BabyYaml\Reader\Exception\ParseErrorException;
 use Ling\Bat\BDotTool;
+use Ling\Bat\FileSystemTool;
 use Ling\CliTools\Command\CommandInterface;
+use Ling\CliTools\Input\ArrayInput;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\CliTools\Program\Application;
@@ -16,6 +17,7 @@ use Ling\Uni2\DependencySystemImporter\DependencySystemImporterInterface;
 use Ling\Uni2\DependencySystemImporter\GitGalaxyDependencySystemImporter;
 use Ling\Uni2\DependencySystemImporter\GitRepoDependencySystemImporter;
 use Ling\Uni2\Exception\Uni2Exception;
+use Ling\Uni2\Helper\OutputHelper as H;
 use Ling\Uni2\LocalServer\LocalServer;
 use Ling\UniverseTools\MetaInfoTool;
 
@@ -197,18 +199,9 @@ class UniToolApplication extends Application
      * It will check that the directory exists and is a directory.
      *
      * @return string
-     * @throws Uni2Exception
      */
     public function getApplicationDir()
     {
-        if (null === $this->applicationDir) {
-            throw new Uni2Exception("The application directory hasn't been set. You can set it using either the --application-dir option, or execute the program from the application directory.");
-        }
-
-        if (false === is_dir($this->applicationDir)) {
-            throw new Uni2Exception("The application directory (" . $this->applicationDir . ") is not a directory. You can set the application directory using either the --application-dir option, or executing the program from the application directory directly.");
-        }
-
         return $this->applicationDir;
     }
 
@@ -236,15 +229,94 @@ class UniToolApplication extends Application
      *
      *
      * @return string
-     * @throws Uni2Exception
      */
     public function getUniverseDirectory()
+    {
+        $universeDir = $this->getApplicationDir() . "/universe";
+        return $universeDir;
+    }
+
+
+    /**
+     * Returns the application directory if it actually exists.
+     * An exception is thrown otherwise (if the application directory is not a valid directory).
+     *
+     *
+     * @return string
+     * @throws Uni2Exception
+     */
+    public function checkApplicationDir()
+    {
+        if (null === $this->applicationDir) {
+            throw new Uni2Exception("The application directory hasn't been set. You can set it using either the --application-dir option, or execute the program from the application directory.");
+        }
+
+        if (false === is_dir($this->applicationDir)) {
+            throw new Uni2Exception("The application directory (" . $this->applicationDir . ") is not a directory. You can set the application directory using either the --application-dir option, or executing the program from the application directory directly.");
+        }
+
+        return $this->applicationDir;
+    }
+
+    /**
+     * Returns the universe directory if it actually exists.
+     * An exception is thrown otherwise (if the universe directory is not a valid directory).
+     *
+     *
+     * @return string
+     * @throws Uni2Exception
+     */
+    public function checkUniverseDirectory()
     {
         $universeDir = $this->getApplicationDir() . "/universe";
         if (false === is_dir($universeDir)) {
             throw new Uni2Exception("The universe directory (" . $universeDir . ") is not a directory. You must create the universe directory at the root of your application directory.");
         }
         return $universeDir;
+    }
+
+    /**
+     * Ensure that the universe exists under the current application directory.
+     *
+     * If the universe directory doesn't exist yet, a primitive universe is created,
+     * containing:
+     *
+     * - the bigbang.php script
+     * - the Ling/BumbleBee autoloader
+     */
+    public function bootUniverse(OutputInterface $output)
+    {
+
+        $indentLevel = 0;
+
+
+        $universeDir = $this->getUniverseDirectory();
+        $bigBangFile = $universeDir . "/bigbang.php";
+        $bumbleBeeDir = $universeDir . "/Ling/BumbleBee";
+        if (
+            false === is_dir($universeDir) ||
+            false === file_exists($bigBangFile) ||
+            false === is_dir($bumbleBeeDir)
+        ) {
+            H::info(H::i($indentLevel) . "Creating the primary universe." . PHP_EOL, $output);
+        }
+
+
+        if (false === is_dir($universeDir)) {
+            FileSystemTool::mkdir($universeDir);
+        }
+        if (false === file_exists($bigBangFile)) {
+            $bigBangSrc = __DIR__ . "/../assets/uni-skeleton/universe/bigbang.php";
+            FileSystemTool::copyFile($bigBangSrc, $bigBangFile);
+        }
+        if (false === is_dir($bumbleBeeDir)) {
+            $myInput = new ArrayInput();
+            $myInput->setItems([
+                ":import" => true,
+                ":Ling/BumbleBee" => true,
+            ]);
+            $this->run($myInput, $output);
+        }
     }
 
     /**
@@ -325,8 +397,6 @@ class UniToolApplication extends Application
      *
      *
      * @return bool
-     * @throws Uni2Exception
-     * @throws ParseErrorException
      */
     public function copyDependencyMasterFileFromWeb(): bool
     {

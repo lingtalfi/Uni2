@@ -56,7 +56,7 @@ class DependencyMasterBuilderUtil
      * @param string $universeDir
      * @param string $file
      * @param array $errors
-     * @throws \UniverseTools\Exception\UniverseToolsException
+     * @throws \Ling\UniverseTools\Exception\UniverseToolsException
      */
     public function createDependencyMasterByUniverseDir(string $universeDir, string $file, array &$errors = [])
     {
