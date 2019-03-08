@@ -96,16 +96,6 @@ class ImportUtil
         $indentLevel = $options['indentLevel'] ?? 0;
 
 
-
-        //--------------------------------------------
-        // BOOT THE UNIVERSE IF IT DOESN'T EXIST
-        //--------------------------------------------
-        $universeDir = $this->application->getUniverseDirectory();
-
-
-
-
-
         //--------------------------------------------
         // PROCEED WITH THE IMPORT PLANET
         //--------------------------------------------
@@ -116,7 +106,6 @@ class ImportUtil
 
             /**
              * TODO: HERE
-             *
              *
              * upgrade command.
              * uni import should create universe if not exist

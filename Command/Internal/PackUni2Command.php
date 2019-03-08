@@ -97,6 +97,7 @@ class PackUni2Command extends UniToolGenericCommand
                         "application-dir" => $path,
                         ":import-map" => true,
                         "-f" => true,
+                        "-n" => true,
                     ]);
                     $this->application->run($myInput, $output);
 

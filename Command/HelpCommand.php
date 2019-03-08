@@ -67,6 +67,8 @@ class HelpCommand extends UniToolGenericCommand
         $output->write("<$format>" . str_repeat('=', 25) . "</$format>" . PHP_EOL);
         $output->write("<$format>*    Uni-tool help       </$format>" . PHP_EOL);
         $output->write("<$format>" . str_repeat('=', 25) . "</$format>" . PHP_EOL);
+        $output->write(PHP_EOL);
+        $output->write("A value preceded by a dollar symbol (\$) is always a variable." . PHP_EOL);
 
 
         $output->write(PHP_EOL);
@@ -74,16 +76,14 @@ class HelpCommand extends UniToolGenericCommand
         $output->write(str_repeat('-', 17) . PHP_EOL);
         $output->write("The following options apply to all the commands." . PHP_EOL);
         $output->write(PHP_EOL);
-        $output->write(H::j(1) . $this->o("--application-dir=\$path") . ": sets the application directory to use. If not set, the current directory will be used." . PHP_EOL);
-
-
-
+        $output->write(H::j(1) . $this->o("application-dir=\$path") . ": sets the application directory to use. If not set, the current directory will be used." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-e") . ": error verbose mode. When an error occurs, the whole exception trace is displayed." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("indent=\$number") . ": sets the base indentation level used by most commands." . PHP_EOL);
 
 
         $output->write(PHP_EOL);
         $output->write("<bold>Commands list</bold>:" . PHP_EOL);
         $output->write(str_repeat('-', 17) . PHP_EOL);
-        $output->write("A value preceded by a dollar symbol (\$) is always a variable." . PHP_EOL);
         $output->write(PHP_EOL);
 
 
@@ -105,24 +105,29 @@ class HelpCommand extends UniToolGenericCommand
         $output->write("- $import " . $this->o('$planet') . ": imports the <bold>\$planet</bold> only if it doesn't exist in the application yet." . PHP_EOL);
         $output->write(H::s(1) . "The same applies to the planet dependencies if any." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the reimporting of the planet and its dependencies no matter what." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-n") . ": do not boot. By default, the command creates the primary universe if necessary. If this flag is set, the primary universe is not created." . PHP_EOL);
 
         $output->write("- $importAll: executes the <bold>import</bold> command to all the planets of the current application." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the reimporting of the planets and their dependencies no matter what." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-n") . ": do not boot. By default, the command creates the primary universe if necessary. If this flag is set, the primary universe is not created." . PHP_EOL);
 
         $output->write("- $importGalaxy " . $this->o('$galaxy') . ": executes the <bold>import</bold> command for all the planets of the <bold>\$galaxy</bold>." . PHP_EOL);
         $output->write(H::s(1) . "The planet list is taken from the local dependency master file." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the reimporting of all planets (and dependencies) no matter what." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-n") . ": do not boot. By default, the command creates the primary universe if necessary. If this flag is set, the primary universe is not created." . PHP_EOL);
 
 
         $output->write("- $importMap " . $this->o('?$mapPath') . ": executes the <bold>import</bold> command for all the planets defined in the <bold>\$mapPath</bold> file." . PHP_EOL);
         $output->write(H::s(1) . "The map is a babyYaml file containing the list of planet ids to import." . PHP_EOL);
         $output->write(H::s(1) . "If the \$mapPath is not specified, this command will search for the <bold>map.byml</bold> file at the root of the application's <bold>universe</bold> directory." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the importing of all planets (and dependencies) no matter what." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-n") . ": do not boot. By default, the command creates the primary universe if necessary. If this flag is set, the primary universe is not created." . PHP_EOL);
 
 
         $output->write("- $importUniverse : executes the <bold>import</bold> command for all the planets of the universe." . PHP_EOL);
         $output->write(H::s(1) . "The planet list is taken from the local dependency master file." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the reimporting of all planets (and dependencies) no matter what." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-n") . ": do not boot. By default, the command creates the primary universe if necessary. If this flag is set, the primary universe is not created." . PHP_EOL);
 
 
         $output->write("- $listplanet: displays the list of planets of the current application." . PHP_EOL);
@@ -141,26 +146,31 @@ class HelpCommand extends UniToolGenericCommand
         $output->write(H::s(1) . "or if a newer version is available (defined in the local dependency-master file)." . PHP_EOL);
         $output->write(H::s(1) . "The same applies to the planet dependencies if any." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the reimporting of the planet and its dependencies no matter what." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-n") . ": do not boot. By default, the command creates the primary universe if necessary. If this flag is set, the primary universe is not created." . PHP_EOL);
 
 
         $output->write("- $reimportAll: executes the <bold>reimport</bold> command to all the planets of the current application." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the reimporting of the planets and their dependencies no matter what." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-n") . ": do not boot. By default, the command creates the primary universe if necessary. If this flag is set, the primary universe is not created." . PHP_EOL);
 
 
         $output->write("- $reimportGalaxy " . $this->o('$galaxy') . ": executes the <bold>reimport</bold> command for all the planets of the <bold>\$galaxy</bold>." . PHP_EOL);
         $output->write(H::s(1) . "The planet list is taken from the local dependency master file." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the reimporting of all planets (and dependencies) no matter what." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-n") . ": do not boot. By default, the command creates the primary universe if necessary. If this flag is set, the primary universe is not created." . PHP_EOL);
 
 
         $output->write("- $reimportMap " . $this->o('?$mapPath') . ": executes the <bold>reimport</bold> command for all the planets defined in the <bold>\$mapPath</bold> file." . PHP_EOL);
         $output->write(H::s(1) . "The map is a babyYaml file containing the list of planet ids to reimport." . PHP_EOL);
         $output->write(H::s(1) . "If the \$mapPath is not specified, this command will search for the <bold>map.byml</bold> file at the root of the application's <bold>universe</bold> directory." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the reimporting of all planets (and dependencies) no matter what." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-n") . ": do not boot. By default, the command creates the primary universe if necessary. If this flag is set, the primary universe is not created." . PHP_EOL);
 
 
         $output->write("- $reimportUniverse : executes the <bold>reimport</bold> command for all the planets of the universe." . PHP_EOL);
         $output->write(H::s(1) . "The planet list is taken from the local dependency master file." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the reimporting of all planets (and dependencies) no matter what." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-n") . ": do not boot. By default, the command creates the primary universe if necessary. If this flag is set, the primary universe is not created." . PHP_EOL);
 
 
         $output->write("- $store " . $this->o('$planet') . ": reimports the <bold>\$planet</bold> in the local server." . PHP_EOL);
@@ -192,8 +202,6 @@ class HelpCommand extends UniToolGenericCommand
         $output->write(H::s(1) . "Upgradable means that there is a newer version of the planet on the web." . PHP_EOL);
 
         $output->write("- $version: displays the version number of this local copy of uni-tool." . PHP_EOL);
-
-
 
 
     }

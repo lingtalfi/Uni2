@@ -84,12 +84,20 @@ class ReimportMapCommand extends UniToolGenericCommand
 
 
     /**
+     * This property holds whether the @page(boot process) should be available to this command.
+     * @var bool
+     */
+    protected $bootAvailable;
+
+
+    /**
      * Builds the ReimportMapCommand instance.
      */
     public function __construct()
     {
         parent::__construct();
         $this->importMode = "reimport";
+        $this->bootAvailable = true;
     }
 
 
@@ -99,14 +107,20 @@ class ReimportMapCommand extends UniToolGenericCommand
     public function run(InputInterface $input, OutputInterface $output)
     {
 
-        $this->application->bootUniverse($output);
-
-
+        $indentLevel = $this->application->getBaseIndent();
         $forceMode = $input->hasFlag("f");
-        $indentLevel = 0;
+        $doNotBoot = $input->hasFlag("n");
+
+
+        if (true === $this->bootAvailable && false === $doNotBoot) {
+            $this->application->bootUniverse($output);
+        }
+
+
 
         $readMap = false;
         $mapPath = $input->getParameter(2);
+
         if (null === $mapPath) {
             $mapPath = $this->application->getUniverseDirectory() . "/map.byml";
             if (file_exists($mapPath)) {
@@ -126,6 +140,7 @@ class ReimportMapCommand extends UniToolGenericCommand
 
 
         if (true === $readMap) {
+
 
             $mapConf = BabyYamlUtil::readFile($mapPath);
             if ($mapConf) {

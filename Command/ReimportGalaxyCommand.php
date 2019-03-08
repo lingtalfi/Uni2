@@ -37,12 +37,19 @@ class ReimportGalaxyCommand extends UniToolGenericCommand
 
 
     /**
+     * This property holds whether the @page(boot process) should be available to this command.
+     * @var bool
+     */
+    protected $bootAvailable;
+
+    /**
      * Builds the ReimportGalaxyCommand instance.
      */
     public function __construct()
     {
         parent::__construct();
         $this->importMode = "reimport";
+        $this->bootAvailable = true;
     }
 
 
@@ -51,12 +58,19 @@ class ReimportGalaxyCommand extends UniToolGenericCommand
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
-        $this->application->bootUniverse($output);
 
 
-        $indentLevel = 0;
+        $indentLevel = $this->application->getBaseIndent();
         $forceMode = $input->hasFlag("f");
+        $doNotBoot = $input->hasFlag("n");
+
+
         $galaxy = $input->getParameter(2);
+
+        if (true === $this->bootAvailable && false === $doNotBoot) {
+            $this->application->bootUniverse($output);
+        }
+
 
         if (null !== $galaxy) {
 

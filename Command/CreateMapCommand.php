@@ -75,7 +75,7 @@ class CreateMapCommand extends UniToolGenericCommand
     {
 
         $forceMode = $input->hasFlag("f");
-        $indentLevel = 0;
+        $indentLevel = $this->application->getBaseIndent();
 
 
         $mapPath = $input->getParameter(2);

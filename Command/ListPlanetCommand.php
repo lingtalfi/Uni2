@@ -57,7 +57,7 @@ class ListPlanetCommand extends UniToolGenericCommand
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
-        $indentLevel = 0;
+        $indentLevel = $this->application->getBaseIndent();
         $universeDir = $this->application->checkUniverseDirectory();
         $useVersionNumber = $input->hasFlag("v");
         $dirs = PlanetTool::getPlanetDirs($universeDir);

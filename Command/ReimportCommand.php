@@ -59,6 +59,12 @@ class ReimportCommand extends UniToolGenericCommand
      */
     protected $importMode;
 
+    /**
+     * This property holds whether the @page(boot process) should be available to this command.
+     * @var bool
+     */
+    protected $bootAvailable;
+
 
     /**
      * Builds the ReimportCommand instance.
@@ -67,6 +73,7 @@ class ReimportCommand extends UniToolGenericCommand
     {
         parent::__construct();
         $this->importMode = "reimport";
+        $this->bootAvailable = true;
     }
 
 
@@ -75,10 +82,17 @@ class ReimportCommand extends UniToolGenericCommand
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
-        $this->application->bootUniverse($output);
 
+        $indentLevel = $this->application->getBaseIndent();
+
+
+        $doNotBoot = $input->hasFlag("n");
         $forceMode = $input->hasFlag("f");
-        $indentLevel = 0;
+
+        if (true === $this->bootAvailable && false === $doNotBoot) {
+            $this->application->bootUniverse($output);
+        }
+
 
         $planetName = $input->getParameter(2);
         if (null !== $planetName) {
@@ -86,6 +100,7 @@ class ReimportCommand extends UniToolGenericCommand
             $errorSummary = new ErrorSummary();
             $helper = new ImportUtil();
             $helper->setErrorSummary($errorSummary);
+
 
             $helper->importPlanet($planetName, $this->application, $output, [
                 "indentLevel" => $indentLevel,

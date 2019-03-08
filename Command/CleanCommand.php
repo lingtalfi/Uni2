@@ -31,7 +31,7 @@ class CleanCommand extends UniToolGenericCommand
     public function run(InputInterface $input, OutputInterface $output)
     {
 
-        $indentLevel = 0;
+        $indentLevel = $this->application->getBaseIndent();
         $filesToRemove = [];
         $sCleanItems = $this->application->getConfValue("clean_items", "");
         $entriesToRemove = array_map(function ($v) {

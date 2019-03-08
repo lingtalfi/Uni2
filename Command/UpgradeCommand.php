@@ -42,7 +42,7 @@ class UpgradeCommand extends UniToolGenericCommand
          * 2. If there was an update, then upgrade all planets from the local server
          */
 
-        $indentLevel = 0;
+        $indentLevel = $this->application->getBaseIndent();
 
         $liveMode = $input->hasFlag("l");
 

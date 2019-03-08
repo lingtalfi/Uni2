@@ -69,7 +69,7 @@ class ToLinkCommand extends UniToolGenericCommand
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
-        $indentLevel = 0;
+        $indentLevel = $this->application->getBaseIndent();
 
 
         //--------------------------------------------

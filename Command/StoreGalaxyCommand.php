@@ -29,5 +29,6 @@ class StoreGalaxyCommand extends ReimportGalaxyCommand
     {
         parent::__construct();
         $this->importMode = "store";
+        $this->bootAvailable = false;
     }
 }

@@ -41,6 +41,11 @@ class ReimportAllCommand extends UniToolGenericCommand
      */
     protected $importMode;
 
+    /**
+     * This property holds whether the @page(boot process) should be available to this command.
+     * @var bool
+     */
+    protected $bootAvailable;
 
     /**
      * Builds the ReimportAllCommand instance.
@@ -49,6 +54,7 @@ class ReimportAllCommand extends UniToolGenericCommand
     {
         parent::__construct();
         $this->importMode = "reimport";
+        $this->bootAvailable = true;
     }
 
 
@@ -57,12 +63,16 @@ class ReimportAllCommand extends UniToolGenericCommand
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
-        $this->application->bootUniverse($output);
 
 
-
+        $indentLevel = $this->application->getBaseIndent();
+        $doNotBoot = $input->hasFlag("n");
         $forceMode = $input->hasFlag("f");
-        $indentLevel = 0;
+
+
+        if (true === $this->bootAvailable && false === $doNotBoot) {
+            $this->application->bootUniverse($output);
+        }
 
 
         $universeDir = $this->application->getUniverseDirectory();

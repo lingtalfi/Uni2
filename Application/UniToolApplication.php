@@ -125,10 +125,19 @@ class UniToolApplication extends Application
      */
     private $localServer;
 
+    /**
+     * This property holds the baseIndent for this instance.
+     * The base indent is potentially used by all commands which output something to the screen.
+     *
+     * @var int = 0
+     */
+    private $baseIndent;
+
 
     public function __construct()
     {
         parent::__construct();
+        $this->baseIndent = 0;
         $this->currentDirectory = null;
         $this->applicationDir = null;
         $this->dependencyMasterConf = null;
@@ -301,7 +310,6 @@ class UniToolApplication extends Application
             H::info(H::i($indentLevel) . "Creating the primary universe." . PHP_EOL, $output);
         }
 
-
         if (false === is_dir($universeDir)) {
             FileSystemTool::mkdir($universeDir);
         }
@@ -314,6 +322,9 @@ class UniToolApplication extends Application
             $myInput->setItems([
                 ":import" => true,
                 ":Ling/BumbleBee" => true,
+                "application-dir" => $this->applicationDir,
+                "-n" => true,
+                "indent" => 1,
             ]);
             $this->run($myInput, $output);
         }
@@ -473,6 +484,17 @@ class UniToolApplication extends Application
     }
 
     /**
+     * Returns the baseIndent of this instance.
+     *
+     * @return int
+     */
+    public function getBaseIndent(): int
+    {
+        return $this->baseIndent;
+    }
+
+
+    /**
      * Parses general options.
      *
      * @overrides
@@ -484,6 +506,12 @@ class UniToolApplication extends Application
         // APPLICATION DIR
         //--------------------------------------------
         $appDir = $input->getOption("application-dir");
+        $this->baseIndent = $input->getOption("indent", 0);
+        $errorVerbose = $input->hasFlag("e");
+        if ($errorVerbose) {
+            $this->setErrorIsVerbose(true);
+        }
+
         if (null === $appDir) {
             $appDir = $this->currentDirectory;
         }

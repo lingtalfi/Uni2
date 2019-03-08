@@ -23,5 +23,6 @@ class StoreMapCommand extends ReimportMapCommand
     {
         parent::__construct();
         $this->importMode = "store";
+        $this->bootAvailable = false;
     }
 }

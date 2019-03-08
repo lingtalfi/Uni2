@@ -49,5 +49,6 @@ class StoreCommand extends ReimportCommand
     {
         parent::__construct();
         $this->importMode = "store";
+        $this->bootAvailable = false;
     }
 }

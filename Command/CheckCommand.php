@@ -57,7 +57,7 @@ class CheckCommand extends UniToolGenericCommand
 
         $resolve = $input->hasFlag("r");
 
-        $indentLevel = 0;
+        $indentLevel = $this->application->getBaseIndent();
         $errorIds = [];
 
         $invalidMeta = [];
