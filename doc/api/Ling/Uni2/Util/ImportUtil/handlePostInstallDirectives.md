@@ -22,7 +22,7 @@ protected [ImportUtil::handlePostInstallDirectives](https://github.com/lingtalfi
 
 
 Handles/executes the given post install directives.
-See the [post install directives page](https://github.com/lingtalfi/Uni2/blob/master/README.md#dependencies-byml) for more details.
+See the [post install directives page](https://github.com/lingtalfi/Uni2/blob/master/README.md#dependenciesbyml) for more details.
 
 
 

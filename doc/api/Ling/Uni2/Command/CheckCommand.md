@@ -22,7 +22,7 @@ It will:
 
 - list the unresolved dependencies (for instance if planet A depends on planet B, but planet B is not in the application).
 - list all planets which don't have a valid **meta-info.byml** file at their root (valid means it contains at least the version number).
-See [the meta info file](https://github.com/lingtalfi/Uni2/blob/master/README.md#meta-info-byml) for more details.
+See [the meta info file](https://github.com/lingtalfi/Uni2/blob/master/README.md#meta-infobyml) for more details.
 - list all planets which have dependencies which call unknown importers.
 
 

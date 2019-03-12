@@ -33,7 +33,7 @@ Similarly, if the planet does not have a version number, an error message will b
 
 
 Note: the galaxy name and the version number should be found in the meta info of the planet.
-See the [meta-info of a planet](https://github.com/lingtalfi/Uni2/blob/master/README.md#meta-info-byml) for more details.
+See the [meta-info of a planet](https://github.com/lingtalfi/Uni2/blob/master/README.md#meta-infobyml) for more details.
 
 
 

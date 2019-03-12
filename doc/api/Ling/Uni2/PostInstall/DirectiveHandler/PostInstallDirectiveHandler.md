@@ -15,7 +15,7 @@ Introduction
 ============
 
 The PostInstallDirectiveHandler class.
-This class knows how to handle [post install directives](https://github.com/lingtalfi/Uni2/blob/master/README.md#dependencies-byml).
+This class knows how to handle [post install directives](https://github.com/lingtalfi/Uni2/blob/master/README.md#dependenciesbyml).
 
 
 
