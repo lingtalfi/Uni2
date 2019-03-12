@@ -104,15 +104,6 @@ class ImportUtil
             list($galaxy, $planetShortName) = $planetComponents;
 
 
-            /**
-             * TODO: HERE
-             *
-             * upgrade command.
-             * uni import should create universe if not exist
-             * do tcpdf, swift
-             */
-
-
             $this->localServer = $application->getLocalServer();
             $this->application = $application;
 

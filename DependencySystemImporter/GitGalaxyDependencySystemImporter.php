@@ -44,6 +44,8 @@ class GitGalaxyDependencySystemImporter extends AbstractGitDependencySystemImpor
 
     /**
      * Builds the GitGalaxyDependencySystemImporter instance.
+     *
+     * @param string $dependencySystemName
      */
     public function __construct(string $dependencySystemName)
     {

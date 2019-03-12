@@ -6,6 +6,7 @@ namespace Ling\Uni2\LocalServer;
 
 use Ling\Bat\FileSystemTool;
 use Ling\DirScanner\DirScanner;
+use Ling\DirScanner\YorgDirScannerTool;
 use Ling\Uni2\Exception\Uni2Exception;
 
 /**
@@ -33,6 +34,9 @@ class LocalServer
     protected $active;
 
 
+    /**
+     * Builds the LocalServer instance.
+     */
     public function __construct()
     {
         $this->rootDir = null;
@@ -61,6 +65,17 @@ class LocalServer
     {
         $this->rootDir = $rootDir;
     }
+
+    /**
+     * Returns the rootDir of this instance.
+     *
+     * @return string|null
+     */
+    public function getRootDir(): string
+    {
+        return $this->rootDir;
+    }
+
 
     /**
      * Sets whether the root server is active.
@@ -219,5 +234,33 @@ class LocalServer
         return $ret;
     }
 
+
+    /**
+     * Returns an array containing all the planet long names for the given galaxies.
+     *
+     * @param array $galaxies
+     * Array of galaxy names.
+     *
+     * @return array
+     * @throws Uni2Exception. When the root dir is not set.
+     */
+    public function getPlanetNames(array $galaxies)
+    {
+        if (null === $this->rootDir) {
+            throw new Uni2Exception("Root dir not set");
+        }
+        $ret = [];
+        foreach ($galaxies as $galaxy) {
+            $galaxyDir = $this->rootDir . "/" . $galaxy;
+            if (is_dir($galaxyDir)) {
+                $planetDirs = YorgDirScannerTool::getDirs($galaxyDir);
+                foreach ($planetDirs as $planetDir) {
+                    $planetShortName = basename($planetDir);
+                    $ret[] = $galaxy . "/" . $planetShortName;
+                }
+            }
+        }
+        return $ret;
+    }
 
 }

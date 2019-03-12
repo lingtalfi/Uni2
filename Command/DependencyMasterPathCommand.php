@@ -22,7 +22,13 @@ class DependencyMasterPathCommand extends UniToolGenericCommand
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
-        $output->write($this->application->getLocalDependencyMasterPath() . PHP_EOL);
+
+        $path = $this->application->getLocalDependencyMasterPath();
+        if (file_exists($path)) {
+            $path = realpath($path);
+        }
+
+        $output->write($path . PHP_EOL);
     }
 
 }

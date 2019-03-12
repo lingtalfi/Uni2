@@ -31,7 +31,7 @@ class ReimportGalaxyCommand extends UniToolGenericCommand
      * This property holds the importMode for this instance.
      * See the @page(importMode definition) for more details.
      *
-     * @var string = reimport (import|reimport)
+     * @var string = reimport (import|reimport|store)
      */
     protected $importMode;
 
@@ -70,7 +70,7 @@ class ReimportGalaxyCommand extends UniToolGenericCommand
         if (true === $this->bootAvailable && false === $doNotBoot) {
             $this->application->bootUniverse($output);
         }
-
+        $this->application->checkUpgrade($output);
 
         if (null !== $galaxy) {
 

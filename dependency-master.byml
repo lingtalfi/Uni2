@@ -1,132 +1,113 @@
 galaxies: 
-    Ling: 
-        AdminTable: 
+    Ling:
+        AdminTable:
             version: 1.6.6
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - QuickPdo
 
-            post_install: []
-        
-        ApplicationItemManager: 
-            version: 1.19.1
-            dependencies: 
-                Ling: 
-                    - Bat
-                    - Output
-                    - Program
-                    - CommandLineInput
-                
-            
+
             post_install: []
 
-
-
-        ApplicationLog: 
+        ApplicationLog:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        ArrayExport: 
+
+        ArrayExport:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - ArrayToString
-                
-            
+
+
             post_install: []
-        
-        ArrayRefResolver: 
+
+        ArrayRefResolver:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - ArrayToString
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        ArrayStore: 
+
+        ArrayStore:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - ArrayExport
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        ArrayToString: 
+
+        ArrayToString:
             version: 1.4.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        ArrayToTable: 
+
+        ArrayToTable:
             version: 1.2.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        AssetLoader: 
+
+        AssetLoader:
             version: 1.6.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        AssetsList: 
+
+        AssetsList:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        Authenticate: 
+
+        Authenticate:
             version: 1.7.1
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - ArrayToString
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        BabyDash: 
+
+        BabyDash:
             version: 1.1.8
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - IndentedLines
-                
-            
+
+
             post_install: []
-        
-        BabyYaml: 
+
+        BabyYaml:
             version: 1.1.1
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        BashColorTool: 
+
+        BashColorTool:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
+
         Bat:
             version: 1.155
             dependencies:
@@ -137,259 +118,219 @@ galaxies:
 
 
             post_install: []
-        
-        Bate: 
+
+        Bate:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        Beauty: 
+
+        Beauty:
             version: 1.4.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - DirScanner
-                
-            
+
+
             post_install: []
-        
-        BeeFramework: 
+
+        BeeFramework:
             version: 1.0.1
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Komin
-                
-            
+
+
             post_install: []
-        
-        BullSheet: 
+
+        BullSheet:
             version: 1.3.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - DirScanner
                     - QuickPdo
-                
-            
+
+
             post_install: []
-        
-        BumbleBee: 
+
+        BumbleBee:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Chronos: 
+
+        Chronos:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        ClassCooker: 
+
+        ClassCooker:
             version: 1.7.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        ClassCreator: 
+
+        ClassCreator:
             version: 1.0.1
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        CliTools: 
+
+        CliTools:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - UniversalLogger
-                
-            
+
+
             post_install: []
-        
-        Colis: 
+
+        Colis:
             version: 2.2.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - YouTubeUtils
                     - Tim
                     - UploaderHandler
-                
-            
+
+
             post_install: []
-        
-        CommandLineInput: 
+
+        CommandLineInput:
             version: 1.2.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Output
+
+
             post_install: []
-        
-        CommandLineManiac: 
+
+        CommandLineManiac:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        CommandLineOutput: 
+
+        CommandLineOutput:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        ConditionResolver: 
+
+        ConditionResolver:
             version: 1.1.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        ConsoleTool: 
+
+        ConsoleTool:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        ConventionGuy: 
+
+        ConventionGuy:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        CopyDir: 
+
+        CopyDir:
             version: 1.3.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        CronTaskBot: 
+
+        CronTaskBot:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        CrudGeneratorTools: 
-            version: 1.3.0
-            dependencies: 
-                Ling: 
+
+        CrudWithFile:
+            version: 1.0.0
+            dependencies:
+                Ling:
                     - Bat
                     - ArrayToString
-                    - QuickPdo
-                    - Kamille
-                
-            
+
+
             post_install: []
-        
-        CrudWithFile: 
-            version: 1.0.0
-            dependencies: 
-                Ling: 
-                    - Bat
-                    - ArrayToString
-                
-            
-            post_install: []
-        
-        Csv: 
+
+        Csv:
             version: 1.2.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Dash2Array: 
+
+        Dash2Array:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        DatePickerHelper: 
+
+        DatePickerHelper:
             version: 1.1.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        DebugLogger: 
+
+        DebugLogger:
             version: 1.1.1
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        DerbyCache: 
+
+        DerbyCache:
             version: 1.5.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        Dir2Symlink: 
+
+        Dir2Symlink:
             version: 1.2.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - Output
-                
-            
+
+
             post_install: []
-        
-        DirScanner: 
+
+        DirScanner:
             version: 1.7.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        DirTransformer: 
+
+        DirTransformer:
             version: 1.4.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        DirectoryCleaner: 
+
+        DirectoryCleaner:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        Dispatcher: 
+
+        Dispatcher:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        DocTools: 
+
+        DocTools:
             version: 1.3.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - TokenFun
                     - DirScanner
@@ -398,1056 +339,874 @@ galaxies:
                     - ArrayToTable
                     - ZeusTemplateEngine
                     - ParseDown
-                
-            
+
+
             post_install: []
-        
-        Dreamer: 
+
+        Dreamer:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        EchartsWrapper: 
+
+        EchartsWrapper:
             version: 1.3.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        Ecp: 
+
+        Ecp:
             version: 1.5.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Escaper: 
+
+        Escaper:
             version: 1.4.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        Explorer: 
+
+        Explorer:
             version: 1.2.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Ffmpeg: 
+
+        Ffmpeg:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        FileCleaner: 
+
+        FileCleaner:
             version: 1.1.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        FileCreator: 
+
+        FileCreator:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        FileDeletor: 
+
+        FileDeletor:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        FormModel: 
+
+        FormModel:
             version: 1.5.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        FormRenderer: 
+
+        FormRenderer:
             version: 1.7.2
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        FormTools: 
+
+        FormTools:
             version: 1.7.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        GetFileSize: 
+
+        GetFileSize:
             version: 1.1.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        GetRowsInterface: 
+
+        GetRowsInterface:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        GreekTodoList: 
+
+        GreekTodoList:
             version: 1.4.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        GuiAdminTable: 
+
+        GuiAdminTable:
             version: 1.12.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Here: 
+
+        Here:
             version: 2.2.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        HtmlTemplate: 
+
+        HtmlTemplate:
             version: 3.4.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Http4All: 
+
+        Http4All:
             version: 1.1.1
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        HybridList: 
+
+        HybridList:
             version: 1.17.1
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Icons: 
+
+        Icons:
             version: 1.0.2
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        IndentedLines: 
+
+        IndentedLines:
             version: 1.2.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - Bate
                     - Quoter
-                
-            
+
+
             post_install: []
-        
-        Ingenico: 
+
+        Ingenico:
             version: 1.5.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        Installer: 
+
+        Installer:
             version: 1.2.2
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        InstantLog: 
+
+        InstantLog:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        JAjaxLoader: 
+
+        JAjaxLoader:
             version: 1.4.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        JChronometer: 
+
+        JChronometer:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        JCookie: 
+
+        JCookie:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        JDragSlider: 
+
+        JDragSlider:
             version: 1.1.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        JFullScreen: 
+
+        JFullScreen:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        JGoodies: 
+
+        JGoodies:
             version: 1.1.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        JImageRotator: 
+
+        JImageRotator:
             version: 1.1.1
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        JInfiniteSlider: 
+
+        JInfiniteSlider:
             version: 1.2.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        JItemSlider: 
-            version: 1.3.0
-            dependencies: 
-                Ling: []
-            
-            post_install: []
-        
-        JVideoPlayer: 
-            version: 3.0.0
-            dependencies: 
-                Ling: []
-            
-            post_install: []
-        
-        Jin: 
+
+        Jin:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Jquery: 
+
+        Jquery:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        JqueryUrlWithDropZone: 
+
+        JqueryUrlWithDropZone:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Jquery
-                
-            
+
+
             post_install: []
-        
-        Kamille: 
-            version: 1.144.0
-            dependencies: 
-                Ling: 
-                    - ApplicationItemManager
-                    - ArrayExport
-                    - Bat
-                    - BeeFramework
-                    - ClassCooker
-                    - DirScanner
-                    - LinearFile
-                    - Loader
-                    - Logger
-                    - Output
-                    - TokenFun
-                    - Umail
-                
-            
-            post_install: []
-        
-        KamilleEssentialTools: 
+
+        KamilleEssentialTools:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        KamillePacker: 
+
+        KamillePacker:
             version: 1.7.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - DirScanner
-                
-            
+
+
             post_install: []
-        
-        KamilleWidgets: 
+
+        KamilleWidgets:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Kamille
-                
-            
+
+
             post_install: []
-        
-        KaminosUtils: 
+
+        KaminosUtils:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - CopyDir
                     - Output
-                
-            
+
+
             post_install: []
-        
-        Komin: 
+
+        Komin:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        LinearFile: 
+
+        LinearFile:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Linker: 
+
+        Linker:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        ListModifier: 
+
+        ListModifier:
             version: 1.3.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        ListParams: 
+
+        ListParams:
             version: 1.10.4
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Loader: 
+
+        Loader:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Localys: 
+
+        Localys:
             version: 1.9.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        LogSlicer: 
+
+        LogSlicer:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        Logger: 
+
+        Logger:
             version: 1.4.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        Lys: 
+
+        Lys:
             version: 3.2.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Meredith: 
+
+        Meredith:
             version: 3.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - QuickPdo
                     - Tim
                     - StringFormatter
                     - SuspiciousException
-                
-            
+
+
             post_install: []
-        
-        MethodInjector: 
+
+        MethodInjector:
             version: 1.5.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        MikeMagicTools: 
+
+        MikeMagicTools:
             version: 1.1.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        ModelRenderers: 
+
+        ModelRenderers:
             version: 1.7.3
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        Models: 
+
+        Models:
             version: 1.26.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        MySimpleXmlElement: 
+
+        MySimpleXmlElement:
             version: 1.1.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        MysqlTabular: 
+
+        MysqlTabular:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        NaturallySimpleXmlElement: 
+
+        NaturallySimpleXmlElement:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        NotationFan: 
+
+        NotationFan:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Notificator: 
+
+        Notificator:
             version: 1.1.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Notifier: 
+
+        Notifier:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        NumericKeyArray: 
+
+        NumericKeyArray:
             version: 1.1.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Observer: 
+
+        Observer:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Octopus: 
+
+        Octopus:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - SicTools
                     - ClassCreator
-                
-            
+
+
             post_install: []
-        
-        OnTheFlyForm: 
+
+        OnTheFlyForm:
             version: 2.19.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - FormTools
-                
-            
+
+
             post_install: []
-        
-        Options: 
+
+        Options:
             version: 1.1.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        OrmTools: 
+
+        OrmTools:
             version: 1.18.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Ornella: 
+
+        Ornella:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Output: 
+
+        Output:
             version: 1.7.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Packer: 
+
+        Packer:
             version: 1.2.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - DirScanner
                     - TokenFun
-                
-            
+
+
             post_install: []
-        
-        ParseDown: 
+
+        ParseDown:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Pea: 
+
+        Pea:
             version: 1.2.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        PermsHiker: 
+
+        PermsHiker:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - DirScanner
-                
-            
+
+
             post_install: []
-        
-        PersistentRowCollection: 
+
+        PersistentRowCollection:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - FormModel
                     - QuickPdo
                     - RowsGenerator
-                
-            
+
+
             post_install: []
-        
-        PhpBeast: 
+
+        PhpBeast:
             version: 1.4.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - ArrayToTable
-                
-            
+
+
             post_install: []
-        
-        PhpErrorName: 
+
+        PhpErrorName:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        PhpExcelTool: 
+
+        PhpExcelTool:
             version: 1.9.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        PhpFile: 
+
+        PhpFile:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        PhpTailer: 
+
+        PhpTailer:
             version: 1.0.1
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        PhpTemplate: 
+
+        PhpTemplate:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        PhpUploadFileFix: 
+
+        PhpUploadFileFix:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Privilege: 
+
+        Privilege:
             version: 1.2.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Program: 
+
+        Program:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - CommandLineInput
                     - Output
-                
-            
+
+
             post_install: []
-        
-        PublicException: 
+
+        PublicException:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        QueryFilterBox: 
+
+        QueryFilterBox:
             version: 1.6.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - ListParams
-                
-            
+
+
             post_install: []
-        
-        QuickForm: 
+
+        QuickForm:
             version: 4.6.1
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - QuickPdo
-                
-            
+
+
             post_install: []
-        
-        QuickLog: 
+
+        QuickLog:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        QuickPdo: 
+
+        QuickPdo:
             version: 2.41.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Quoter: 
+
+        Quoter:
             version: 1.4.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - WrappedString
                     - Escaper
-                
-            
+
+
             post_install: []
-        
-        ReflectionRepresentation: 
+
+        ReflectionRepresentation:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - VariableToString
-                
-            
+
+
             post_install: []
-        
-        Registry: 
+
+        Registry:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        RowsGenerator: 
+
+        RowsGenerator:
             version: 1.6.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - QuickPdo
-                
-            
+
+
             post_install: []
-        
-        RowsGeneratorWidget: 
+
+        RowsGeneratorWidget:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - RowsGenerator
-                
-            
+
+
             post_install: []
-        
-        RssUtil: 
+
+        RssUtil:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - MySimpleXmlElement
-                
-            
+
+
             post_install: []
-        
-        SafeUploader: 
+
+        SafeUploader:
             version: 1.2.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        SaveOrm: 
+
+        SaveOrm:
             version: 1.18.1
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - BeeFramework
                     - ThumbnailTools
-                
-            
+
+
             post_install: []
-        
-        ScreenDebug: 
+
+        ScreenDebug:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        SecureImageUploader: 
+
+        SecureImageUploader:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - ThumbnailTools
-                
-            
+
+
             post_install: []
-        
-        SelectChain: 
+
+        SelectChain:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Tim
-                
-            
+
+
             post_install: []
-        
-        SequenceMatcher: 
+
+        SequenceMatcher:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        SicTools: 
+
+        SicTools:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - ArrayToString
-                
-            
+
+
             post_install: []
-        
-        SimplePdoWrapper: 
+
+        SimplePdoWrapper:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        SitemapBuilderBox: 
+
+        SitemapBuilderBox:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        SitemapSlicer: 
+
+        SitemapSlicer:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - SitemapBuilderBox
-                
-            
+
+
             post_install: []
-        
-        SokoForm: 
+
+        SokoForm:
             version: 1.72.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        SqlQuery: 
+
+        SqlQuery:
             version: 1.9.1
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        SqlQueryWrapper: 
+
+        SqlQueryWrapper:
             version: 1.6.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - SqlQuery
                     - QuickPdo
-                
-            
+
+
             post_install: []
-        
-        SqlWizard: 
+
+        SqlWizard:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        StepFormBuilder: 
+
+        StepFormBuilder:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        StringFormatter: 
+
+        StringFormatter:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - ArrayToString
                     - VariableToString
-                
-            
+
+
             post_install: []
-        
-        SuspiciousException: 
+
+        SuspiciousException:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        SvgGridGenerator: 
+
+        SvgGridGenerator:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        TabathaCache: 
+
+        TabathaCache:
             version: 2.4.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        TheAnarchist: 
+
+        TheAnarchist:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        TheBar: 
+
+        TheBar:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        TheScientist: 
+
+        TheScientist:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        ThumbnailTools: 
+
+        ThumbnailTools:
             version: 1.2.2
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        Tim: 
+
+        Tim:
             version: 1.6.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Jquery
-                
-            
+
+
             post_install: []
-        
-        TimeFileUtil: 
+
+        TimeFileUtil:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        Tiphaine: 
+
+        Tiphaine:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        TokenFun: 
+
+        TokenFun:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - DirScanner
-                
-            
+
+
             post_install: []
-        
-        Tokens: 
+
+        Tokens:
             version: 1.4.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        TreeListHelper: 
+
+        TreeListHelper:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        UltimateUploadHandler: 
+
+        UltimateUploadHandler:
             version: 1.2.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        Umail: 
+
+        Umail:
             version: 1.4.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - DirScanner
-                
-            
+
+
             post_install: []
-        
+
         Uni2:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - BabyYaml
                     - Bat
                     - CliTools
                     - UniverseTools
                     - DirScanner
-                
-            
+
+
             post_install: []
 
         UniqueNameGenerator:
@@ -1458,136 +1217,113 @@ galaxies:
 
 
             post_install: []
-        
-        UniversalLogger: 
+
+        UniversalLogger:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        UniversalTemplateEngine: 
+
+        UniversalTemplateEngine:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        UniverseTools: 
+
+        UniverseTools:
             version: 1.3.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - BabyYaml
-                
-            
+
+
             post_install: []
-        
-        Updf: 
-            version: 1.2.0
-            dependencies: 
-                Ling: []
-            
-            post_install: []
-        
-        Uploader: 
+
+        Uploader:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        UploaderHandler: 
+
+        UploaderHandler:
             version: 1.0.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        UrlFriendlyListHelper: 
+
+        UrlFriendlyListHelper:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - Jquery
                     - QuickPdo
-                
-            
+
+
             post_install: []
-        
-        VSwitch: 
+
+        VSwitch:
             version: 1.3.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        VariableToString: 
+
+        VariableToString:
             version: 1.1.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - ArrayToString
                     - ReflectionRepresentation
-                
-            
+
+
             post_install: []
-        
-        VideoSubtitles: 
+
+        VideoSubtitles:
             version: 1.2.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        WebBox: 
+
+        WebBox:
             version: 1.0.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
-                
-            
+
+
             post_install: []
-        
-        WrappedString: 
+
+        WrappedString:
             version: 1.3.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Escaper
-                
-            
+
+
             post_install: []
-        
-        XiaoApi: 
+
+        XiaoApi:
             version: 2.2.4
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - Bat
                     - QuickPdo
                     - ArrayToString
-                
-            
+
+
             post_install: []
-        
-        YouTubeUtils: 
+
+        YouTubeUtils:
             version: 1.2.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
-        
-        ZeusTemplateEngine: 
+
+        ZeusTemplateEngine:
             version: 1.2.0
-            dependencies: 
-                Ling: 
+            dependencies:
+                Ling:
                     - UniversalTemplateEngine
-                
-            
+
+
             post_install: []
-        
-        Zoli: 
+
+        Zoli:
             version: 1.4.0
-            dependencies: 
-                Ling: []
-            
+            dependencies: []
             post_install: []
         
     

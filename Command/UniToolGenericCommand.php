@@ -27,6 +27,9 @@ abstract class UniToolGenericCommand implements CommandInterface
     protected $application;
 
 
+    /**
+     * Builds the UniToolGenericCommand instance.
+     */
     public function __construct()
     {
         $this->application = null;

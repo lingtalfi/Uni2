@@ -19,7 +19,6 @@ use Ling\Uni2\DependencySystemImporter\GitRepoDependencySystemImporter;
 use Ling\Uni2\Exception\Uni2Exception;
 use Ling\Uni2\Helper\OutputHelper as H;
 use Ling\Uni2\LocalServer\LocalServer;
-use Ling\UniverseTools\MetaInfoTool;
 
 
 /**
@@ -134,16 +133,19 @@ class UniToolApplication extends Application
     private $baseIndent;
 
 
+    /**
+     * Builds the UniToolApplication instance.
+     */
     public function __construct()
     {
         parent::__construct();
         $this->baseIndent = 0;
-        $this->currentDirectory = null;
+        $this->currentDirectory = getcwd();
         $this->applicationDir = null;
         $this->dependencyMasterConf = null;
         $this->localServer = null;
-        $this->confFile = __DIR__ . "/../private/configuration/conf.byml";
-        $this->infoFile = __DIR__ . "/../private/info/uni-tool-info.byml";
+        $this->confFile = __DIR__ . "/../info/configuration/conf.byml";
+        $this->infoFile = __DIR__ . "/../info/uni-tool-info.byml";
 
         $this->registerCommand("Ling\Uni2\Command\CheckCommand", "check");
         $this->registerCommand("Ling\Uni2\Command\CleanCommand", "clean");
@@ -156,6 +158,10 @@ class UniToolApplication extends Application
         $this->registerCommand("Ling\Uni2\Command\ImportGalaxyCommand", "import-galaxy");
         $this->registerCommand("Ling\Uni2\Command\ImportMapCommand", "import-map");
         $this->registerCommand("Ling\Uni2\Command\ImportUniverseCommand", "import-universe");
+
+
+        $this->registerCommand("Ling\Uni2\Command\InfoApplicationCommand", "info");
+        $this->registerCommand("Ling\Uni2\Command\InfoUniverseCommand", "info-universe");
 
         $this->registerCommand("Ling\Uni2\Command\ListPlanetCommand", "listplanet");
 
@@ -172,6 +178,7 @@ class UniToolApplication extends Application
         $this->registerCommand("Ling\Uni2\Command\ReimportUniverseCommand", "reimport-universe");
 
 
+        $this->registerCommand("Ling\Uni2\Command\StoreAllCommand", "store-all");
         $this->registerCommand("Ling\Uni2\Command\StoreCommand", "store");
         $this->registerCommand("Ling\Uni2\Command\StoreGalaxyCommand", "store-galaxy");
         $this->registerCommand("Ling\Uni2\Command\StoreMapCommand", "store-map");
@@ -182,6 +189,7 @@ class UniToolApplication extends Application
         $this->registerCommand("Ling\Uni2\Command\VersionCommand", "version");
 
 
+        $this->registerCommand("Ling\Uni2\Command\CreateDependencyMasterCommand", "create-master");
         $this->registerCommand("Ling\Uni2\Command\Internal\PackUni2Command", "private:pack");
 
 //        $this->registerCommand("Ling\Uni2\Command\DependencyMasterPathCommand", "info"); // info about a planet: meta and recursive dependencies
@@ -191,7 +199,6 @@ class UniToolApplication extends Application
 
         $lingImporter = new GitGalaxyDependencySystemImporter("Ling");
         $lingImporter->setBaseRepoName("lingtalfi");
-        $lingImporter->setBaseRepoName("karayabin/universe-snapshot/tree/master/universe");
 
         $gitImporter = new GitRepoDependencySystemImporter("git");
 
@@ -214,6 +221,12 @@ class UniToolApplication extends Application
         return $this->applicationDir;
     }
 
+
+    /**
+     * Returns the universe dependencies directory.
+     *
+     * @return string
+     */
     public function getUniverseDependenciesDir()
     {
         $appDir = $this->getApplicationDir();
@@ -292,6 +305,10 @@ class UniToolApplication extends Application
      *
      * - the bigbang.php script
      * - the Ling/BumbleBee autoloader
+     *
+     *
+     * @param OutputInterface $output
+     * @throws Uni2Exception
      */
     public function bootUniverse(OutputInterface $output)
     {
@@ -307,8 +324,9 @@ class UniToolApplication extends Application
             false === file_exists($bigBangFile) ||
             false === is_dir($bumbleBeeDir)
         ) {
-            H::info(H::i($indentLevel) . "Creating the primary universe." . PHP_EOL, $output);
+            H::info(H::i($indentLevel) . "Creating the primary universe:" . PHP_EOL, $output);
         }
+
 
         if (false === is_dir($universeDir)) {
             FileSystemTool::mkdir($universeDir);
@@ -340,6 +358,12 @@ class UniToolApplication extends Application
         return realpath($this->confFile);
     }
 
+
+    /**
+     * Returns the @concept(Uni2 configuration).
+     *
+     * @return array
+     */
     public function getConf(): array
     {
         return BabyYamlUtil::readFile($this->confFile);
@@ -380,25 +404,6 @@ class UniToolApplication extends Application
         return $this->localServer;
     }
 
-    /**
-     * Returns the version number of the uni-tool on the web.
-     * See the @page(uni-tool upgrade-system) for more info.
-     *
-     *
-     * @return string
-     * @throws Uni2Exception
-     */
-    public function getWebVersionNumber(): string
-    {
-        $url = "https://raw.githubusercontent.com/lingtalfi/universe-naive-importer/master/meta-info.byml";
-        $content = file_get_contents($url); // version: x.x.x
-        if (false === $content) {
-            throw new Uni2Exception("Cannot access the web url: $url");
-        }
-        $version = trim(explode(':', $content)[1]);
-        return $version;
-    }
-
 
     /**
      * Copies the dependency-master file on the web to the local uni-tool copy's root directory.
@@ -413,7 +418,7 @@ class UniToolApplication extends Application
     {
         $url = "https://raw.githubusercontent.com/lingtalfi/universe-naive-importer/master/dependency-master.byml";
         $file = $this->getLocalDependencyMasterPath();
-        return copy($url, $file);
+        return FileSystemTool::copyFile($url, $file);
     }
 
 
@@ -453,21 +458,75 @@ class UniToolApplication extends Application
 
 
     /**
+     * Returns the version number of the uni-tool on the web.
+     * See the @page(uni-tool upgrade-system) for more info.
+     *
+     *
+     * @return string
+     * @throws Uni2Exception
+     */
+    public function getUniToolWebVersionNumber(): string
+    {
+        $url = "https://raw.githubusercontent.com/lingtalfi/universe-naive-importer/master/meta-info.byml";
+        $content = file_get_contents($url); // version: x.x.x
+        if (false === $content) {
+            throw new Uni2Exception("Cannot access the web url: $url");
+        }
+        $version = trim(explode(':', $content)[1]);
+        return $version;
+    }
+
+
+    /**
      * Returns the version number of the uni-tool on this local machine.
      * See the @page(uni-tool upgrade-system) for more info.
      *
-     * Note: if for some reason the meta-info.byml is not accessible (i.e. the user deleted it for instance),
-     * we return false.
+     * Note: if for some reason the info is not accessible (i.e. the user deleted the info file for instance),
+     * we return 0.0.0 (so that it looses against a version number comparison).
      *
      *
      *
      *
-     * @return string|false
+     * @return string
+     * @throws Uni2Exception
      */
-    public function getVersionNumber(): string
+    public function getUniToolLocalVersionNumber(): string
     {
-        $meta = MetaInfoTool::parseInfo(__DIR__ . "/../");
-        return $meta['version'] ?? false;
+        $info = $this->getUniToolInfo();
+        return $info['local_version'] ?? "0.0.0";
+    }
+
+
+    /**
+     * Returns whether this uni-tool version is outdated.
+     * In other words, whether the local copy of the uni-tool on this machine has a newer
+     * version available on the web.
+     * Note: the uni-tool IS NOT Uni2, the uni-tool's url is https://github.com/lingtalfi/universe-naive-importer,
+     * while the Uni2's url is: https://github.com/lingtalfi/Uni2.
+     *
+     * However, the Uni2 is used under the hood by the uni-tool, and the Uni2 keeps track of the uni-tool
+     * version number internally, so that we can see if it's outdated.
+     *
+     *
+     * Important note: the uni-tool's version number basically reflects changes in the @page(dependency-master file).
+     *
+     *
+     *
+     * @return bool
+     * @throws Uni2Exception
+     */
+    public function isUniToolOutdated()
+    {
+        //--------------------------------------------
+        // UPDATING DEPENDENCY MASTER FILE (if necessary)
+        //--------------------------------------------
+        $webVersion = $this->getUniToolWebVersionNumber();
+        $version = $this->getUniToolLocalVersionNumber();
+
+        if ($webVersion > $version) {
+            return true;
+        }
+        return false;
     }
 
 
@@ -480,7 +539,7 @@ class UniToolApplication extends Application
      */
     public function getLocalDependencyMasterPath(): string
     {
-        return realpath(__DIR__ . "/../dependency-master.byml");
+        return __DIR__ . "/../dependency-master.byml";
     }
 
     /**
@@ -491,6 +550,82 @@ class UniToolApplication extends Application
     public function getBaseIndent(): int
     {
         return $this->baseIndent;
+    }
+
+
+    /**
+     * Updates the uni tool info with the given $values.
+     * Note: only the entries passed with the $values array will be updated.
+     *
+     *
+     * @param array $values
+     * @throws Uni2Exception
+     */
+    public function updateUniToolInfo(array $values)
+    {
+        $data = $this->getUniToolInfo();
+        $data = array_merge($data, $values);
+        BabyYamlUtil::writeFile($data, $this->infoFile);
+    }
+
+
+    /**
+     * Checks whether a newer version of the uni-tool is available on the web,
+     * and executes the upgrade if this is the case.
+     *
+     *
+     *
+     * @param OutputInterface $output
+     * @throws Uni2Exception
+     */
+    public function checkUpgrade(OutputInterface $output)
+    {
+        $indentLevel = $this->baseIndent;
+        $autoUpdateConf = $this->getConfValue("automatic_updates");
+        $isActive = $autoUpdateConf['is_active'] ?? false;
+        if (true === (bool)$isActive) {
+
+
+            //--------------------------------------------
+            // CHECK FREQUENCY
+            //--------------------------------------------
+            $frequency = $autoUpdateConf['frequency'] ?? 5;
+            $canUpdate = false;
+            if (0 === (int)$frequency) {
+                $canUpdate = true;
+            } else {
+                $uniInfo = $this->getUniToolInfo();
+                $lastUpdate = $uniInfo['last_update'] ?? null;
+                if (null === $lastUpdate) {
+                    $lastUpdate = date("Y-m-d H:i:s");
+                }
+
+                $now = new \DateTime("now");
+                $lastUpdateTime = new \DateTime($lastUpdate);
+                $diff = $now->diff($lastUpdateTime);
+                $nbDaysElapsed = $diff->format("%a");
+                if ($nbDaysElapsed > $frequency) {
+                    $canUpdate = true;
+                }
+            }
+
+
+            //--------------------------------------------
+            // CHECK VERSION NUMBER
+            //--------------------------------------------
+            if (true === $canUpdate) {
+                H::info(H::i($indentLevel) . "Checking for updates:" . PHP_EOL, $output);
+
+                $myInput = new ArrayInput();
+                $myInput->setItems([
+                    "application-dir" => $this->checkApplicationDir(),
+                    ":upgrade" => true,
+                    "indent" => $indentLevel + 1,
+                ]);
+                $this->run($myInput, $output);
+
+            }
+        }
     }
 
 
@@ -514,6 +649,9 @@ class UniToolApplication extends Application
 
         if (null === $appDir) {
             $appDir = $this->currentDirectory;
+            if (null === $appDir) {
+                throw new Uni2Exception("current directory was not set!");
+            }
         }
         $this->applicationDir = $appDir;
 
@@ -540,6 +678,26 @@ class UniToolApplication extends Application
             throw new Uni2Exception("All commands must inherit from Uni2\Command\UniToolGenericCommand.");
         }
     }
+
+
+    /**
+     * Returns the uni tool info array, containing:
+     *
+     * - last_update: the last (mysql) datetime the uni-tool the upgrade command was called.
+     * - local_version: the local version number of the uni-tool when last updated with the upgrade command.
+     *
+     * @return array
+     * @throws Uni2Exception
+     */
+    protected function getUniToolInfo()
+    {
+        if (file_exists($this->infoFile)) {
+            return BabyYamlUtil::readFile($this->infoFile);
+        } else {
+            throw new Uni2Exception("Info file not found: " . $this->infoFile);
+        }
+    }
+
 
 }
 

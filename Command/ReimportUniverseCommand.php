@@ -66,7 +66,7 @@ class ReimportUniverseCommand extends UniToolGenericCommand
         if (true === $this->bootAvailable && false === $doNotBoot) {
             $this->application->bootUniverse($output);
         }
-
+        $this->application->checkUpgrade($output);
 
         $masterConf = $this->application->getDependencyMasterConf();
         $galaxies = $masterConf['galaxies'] ?? [];

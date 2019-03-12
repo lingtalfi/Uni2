@@ -32,6 +32,7 @@ class HelpCommand extends UniToolGenericCommand
         $clean = $this->n('clean');
         $conf = $this->n('conf');
         $confPath = $this->n('confpath');
+        $createMaster = $this->n('create-master');
         $help = $this->n('help');
 
         $import = $this->n('import');
@@ -39,6 +40,9 @@ class HelpCommand extends UniToolGenericCommand
         $importGalaxy = $this->n('import-galaxy');
         $importMap = $this->n('import-map');
         $importUniverse = $this->n('import-universe');
+
+        $infoApplication = $this->n('info');
+        $infoUniverse = $this->n('info-universe');
 
         $listplanet = $this->n('listplanet');
 
@@ -54,6 +58,7 @@ class HelpCommand extends UniToolGenericCommand
         $reimportUniverse = $this->n('reimport-universe');
 
         $store = $this->n('store');
+        $storeAll = $this->n('store-all');
         $storeGalaxy = $this->n('store-galaxy');
         $storeMap = $this->n('store-map');
 
@@ -100,6 +105,12 @@ class HelpCommand extends UniToolGenericCommand
         $output->write(H::s(2) . "For instance: <bold>local_server.root_dir</bold>=/path/to/my/root_dir" . PHP_EOL);
 
         $output->write("- $confPath: displays the path to the configuration of this local copy of uni-tool." . PHP_EOL);
+
+        $output->write("- $createMaster " . $this->o('$path') . " : creates a <bold>dependency master file</bold> at the given <bold>\$path</bold>, for the planets of the current application or the local server." . PHP_EOL);
+        $output->write(H::s(1) . "By default, the <bold>dependency master file</bold> is created from the planets of the current application." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-s") . ": local server. If this flag is set, the <bold>dependency master file</bold> will be created from the planets of the local server." . PHP_EOL);
+        $output->write(H::s(1) . "Note: if a file or directory exists at the <bold>\$path</bold> location, it will be removed and replaced by the dependency master file without further warning!" . PHP_EOL);
+
         $output->write("- $help: displays this help message." . PHP_EOL);
 
         $output->write("- $import " . $this->o('$planet') . ": imports the <bold>\$planet</bold> only if it doesn't exist in the application yet." . PHP_EOL);
@@ -130,6 +141,11 @@ class HelpCommand extends UniToolGenericCommand
         $output->write(H::j(1) . $this->o("-n") . ": do not boot. By default, the command creates the primary universe if necessary. If this flag is set, the primary universe is not created." . PHP_EOL);
 
 
+        $output->write("- $infoApplication : displays information about the current application (the number of galaxies, the number of planets, and the percentage of planets having dependencies)." . PHP_EOL);
+        $output->write("- $infoUniverse : displays information about the universe (the number of galaxies, the number of planets, and the percentage of planets having dependencies)." . PHP_EOL);
+        $output->write(H::s(1) . "Also displays similar information for each galaxy." . PHP_EOL);
+
+
         $output->write("- $listplanet: displays the list of planets of the current application." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-v") . ": displays the version number next to the planet names." . PHP_EOL);
 
@@ -143,7 +159,7 @@ class HelpCommand extends UniToolGenericCommand
         $output->write("- $masterPath: displays the path to the local dependency-master file." . PHP_EOL);
 
         $output->write("- $reimport " . $this->o('$planet') . ": reimports the <bold>\$planet</bold> only if it doesn't exist in the application yet, " . PHP_EOL);
-        $output->write(H::s(1) . "or if a newer version is available (defined in the local dependency-master file)." . PHP_EOL);
+        $output->write(H::s(1) . "or if a newer version is available (version defined in the local dependency-master file)." . PHP_EOL);
         $output->write(H::s(1) . "The same applies to the planet dependencies if any." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the reimporting of the planet and its dependencies no matter what." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-n") . ": do not boot. By default, the command creates the primary universe if necessary. If this flag is set, the primary universe is not created." . PHP_EOL);
@@ -174,7 +190,14 @@ class HelpCommand extends UniToolGenericCommand
 
 
         $output->write("- $store " . $this->o('$planet') . ": reimports the <bold>\$planet</bold> in the local server." . PHP_EOL);
-        $output->write(H::s(1) . "If the planet is already stored in the local server, it will not be re-imported unless a newer version is available (defined in the local dependency-master file)," . PHP_EOL);
+        $output->write(H::s(1) . "If the planet is already stored in the local server, it will not be re-imported unless a newer version is available (version defined in the local dependency-master file)," . PHP_EOL);
+        $output->write(H::s(1) . "or if the force flag (-f) is set." . PHP_EOL);
+        $output->write(H::s(1) . "The same logic applies recursively to the planet dependencies if any." . PHP_EOL);
+        $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the reimporting (i.e. re-downloading) of the planet and its dependencies no matter what." . PHP_EOL);
+
+
+        $output->write("- $storeAll: reimports all the planets of the local server." . PHP_EOL);
+        $output->write(H::s(1) . "If the planet is already stored in the local server, it will not be re-imported unless a newer version is available (version defined in the local dependency-master file)," . PHP_EOL);
         $output->write(H::s(1) . "or if the force flag (-f) is set." . PHP_EOL);
         $output->write(H::s(1) . "The same logic applies recursively to the planet dependencies if any." . PHP_EOL);
         $output->write(H::j(1) . $this->o("-f") . ": force mode. Forces the reimporting (i.e. re-downloading) of the planet and its dependencies no matter what." . PHP_EOL);

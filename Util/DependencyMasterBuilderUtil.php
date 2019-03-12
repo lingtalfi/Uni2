@@ -41,7 +41,7 @@ class DependencyMasterBuilderUtil
      * How to use:
      * ------------
      * ```php
-     * $universeDir = "/Users/pierrelafitte/Documents/it/php/projects/universe/planets";
+     * $universeDir = "/myphp/universe";
      * $file = "/komin/jin_site_demo/tmp/dependency-master.byml";
      * $errors = [];
      * $util = new DependencyMasterBuilderUtil();
@@ -56,44 +56,55 @@ class DependencyMasterBuilderUtil
      * @param string $universeDir
      * @param string $file
      * @param array $errors
+     *
+     * @param array|null $allowedGalaxies
+     * An array of allowed galaxies. If this is null, all galaxies are allowed.
+     * If it's an array, only the galaxies specified in the array are allowed.
+     *
      * @throws \Ling\UniverseTools\Exception\UniverseToolsException
      */
-    public function createDependencyMasterByUniverseDir(string $universeDir, string $file, array &$errors = [])
+    public function createDependencyMasterByUniverseDir(string $universeDir, string $file, array &$errors = [], array $allowedGalaxies = null)
     {
         $galaxies = [];
         $planets = PlanetTool::getPlanetDirs($universeDir);
         foreach ($planets as $planetDir) {
 
-            $planetName = basename($planetDir);
-            $meta = MetaInfoTool::parseInfo($planetDir);
-            $galaxy = $meta['galaxy'] ?? null;
-            $version = $meta['version'] ?? null;
 
-            if (null !== $galaxy) {
+            $pInfo = PlanetTool::getGalaxyNamePlanetNameByDir($planetDir);
+            if (false !== $pInfo) {
 
-                if (null !== $version) {
+                list($galaxy, $planetName) = $pInfo;
 
-                    if (false === array_key_exists($galaxy, $galaxies)) {
-                        $galaxies[$galaxy] = [];
+
+                if (null === $allowedGalaxies || in_array($galaxy, $allowedGalaxies, true)) {
+
+                    $meta = MetaInfoTool::parseInfo($planetDir);
+                    $version = $meta['version'] ?? null;
+
+                    if (null !== $version) {
+
+                        if (false === array_key_exists($galaxy, $galaxies)) {
+                            $galaxies[$galaxy] = [];
+                        }
+
+                        $dependencyItem = DependencyTool::getDependencyItem($planetDir);
+                        if (false === array_key_exists("post_install", $dependencyItem)) {
+                            $dependencyItem['post_install'] = [];
+                        }
+
+
+                        $galaxies[$galaxy][$planetName] = [
+                            "version" => $version,
+                            "dependencies" => $dependencyItem['dependencies'],
+                            "post_install" => $dependencyItem['post_install'],
+                        ];
+                    } else {
+                        $errors[] = "The planet $planetName does not have a version number.";
                     }
-
-                    $dependencyItem = DependencyTool::getDependencyItem($planetDir);
-                    if (false === array_key_exists("post_install", $dependencyItem)) {
-                        $dependencyItem['post_install'] = [];
-                    }
-
-
-                    $galaxies[$galaxy][$planetName] = [
-                        "version" => $version,
-                        "dependencies" => $dependencyItem['dependencies'],
-                        "post_install" => $dependencyItem['post_install'],
-                    ];
-                } else {
-                    $errors[] = "The planet $planetName does not have a version number.";
                 }
 
             } else {
-                $errors[] = "The planet $planetName does not have a galaxy.";
+                $errors[] = "Invalid planet directory: $planetDir. A valid planet directory should look like this: /my_app/universe/\$galaxy/\$planetShortName.";
             }
         }
 

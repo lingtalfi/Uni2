@@ -66,7 +66,10 @@ use Ling\Uni2\Util\ImportUtil;
  *      - If this flag is set, the uni-tool will force the reimport of the planets.
  *          If the planets have dependencies, the dependencies will also be reimported forcibly.
  *
+ * - -f: do not reboot.
  *
+ *      By default, this command will boot the universe if necessary (for instance the universe dir does not exist, or the bigbang.php script was not found).
+ *      If this option is set, the booting will not occur.
  *
  *
  */
@@ -78,7 +81,7 @@ class ReimportMapCommand extends UniToolGenericCommand
      * This property holds the importMode for this instance.
      * See the @page(importMode definition) for more details.
      *
-     * @var string = reimport (import|reimport)
+     * @var string = reimport (import|reimport|store)
      */
     protected $importMode;
 
@@ -115,7 +118,7 @@ class ReimportMapCommand extends UniToolGenericCommand
         if (true === $this->bootAvailable && false === $doNotBoot) {
             $this->application->bootUniverse($output);
         }
-
+        $this->application->checkUpgrade($output);
 
 
         $readMap = false;

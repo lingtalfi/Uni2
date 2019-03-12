@@ -59,7 +59,7 @@ class DependencyMasterHelper
      *
      *
      * @param array $dependencyMaster
-     * @param string $planetName
+     * @param string $longPlanetName
      * The long planet name (galaxy/shortPlanetName).
      *
      * @return array|false
