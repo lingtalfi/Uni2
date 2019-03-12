@@ -15,17 +15,15 @@ Introduction
 ============
 
 The VersionCommand class.
-This command will display the version of this Uni2 planet.
+This command will display the version of the local copy of the uni-tool (not the version of this Uni2 planet).
 
 
 Example
 -------------
 
-
-
 ```bash
 $ uni version
-1.0.0
+2.0.0
 
 ```
 

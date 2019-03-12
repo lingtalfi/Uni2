@@ -869,6 +869,10 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
+- 1.0.1 -- 2019-03-12
+
+    - fix VersionCommand returning the Uni2 version instead of the uni-tool version
+
 - 1.0.0 -- 2019-03-12
 
     - initial commit
