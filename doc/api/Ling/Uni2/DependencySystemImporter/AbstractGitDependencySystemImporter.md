@@ -4,7 +4,7 @@
 
 The AbstractGitDependencySystemImporter class
 ================
-2019-03-12 --> 2019-03-12
+2019-03-12 --> 2019-03-13
 
 
 
@@ -65,12 +65,7 @@ Class synopsis
 
 abstract class <span class="pl-k">AbstractGitDependencySystemImporter</span> implements [DependencySystemImporterInterface](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface.md) {
 
-- Properties
-    - protected string [$dependencySystemName](#property-dependencySystemName) ;
-
 - Methods
-    - public [__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/__construct.md)(string $dependencySystemName) : void
-    - public [getDependencySystemName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/getDependencySystemName.md)() : string
     - public [doImportPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/doImportPackage.md)(string $repoPath, string $destDir, Ling\CliTools\Output\OutputInterface $output, array $options = []) : bool
 
 - Inherited methods
@@ -82,22 +77,11 @@ abstract class <span class="pl-k">AbstractGitDependencySystemImporter</span> imp
 
 
 
-Properties
-=============
-
-- <span id="property-dependencySystemName"><b>dependencySystemName</b></span>
-
-    This property holds the dependencySystemName for this instance.
-    
-    
-
 
 
 Methods
 ==============
 
-- [AbstractGitDependencySystemImporter::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/__construct.md) &ndash; Builds the AbstractGitDependencySystemImporter instance.
-- [AbstractGitDependencySystemImporter::getDependencySystemName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/getDependencySystemName.md) &ndash; Returns the name of the dependency system.
 - [AbstractGitDependencySystemImporter::doImportPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/doImportPackage.md) &ndash; Imports the github.com repo which path is $repoPath to the $destDir directory.
 - [DependencySystemImporterInterface::importPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/importPackage.md) &ndash; Imports the $packageImportName under the $destDir, and returns whether or not the import was successful.
 - [DependencySystemImporterInterface::getPackageSymbolicName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/getPackageSymbolicName.md) &ndash; Returns the package symbolic name from the given $packageImportName.

@@ -4,7 +4,7 @@
 
 The UniToolApplication class
 ================
-2019-03-12 --> 2019-03-12
+2019-03-12 --> 2019-03-13
 
 
 
@@ -62,6 +62,7 @@ class <span class="pl-k">UniToolApplication</span> extends [Application](https:/
     - private [Ling\Uni2\DependencySystemImporter\DependencySystemImporterInterface[]](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface.md) [$importers](#property-importers) ;
     - private [Ling\Uni2\LocalServer\LocalServer](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer.md) [$localServer](#property-localServer) ;
     - private int [$baseIndent](#property-baseIndent) ;
+    - private [Ling\Octopus\ServiceContainer\OctopusServiceContainerInterface](https://github.com/lingtalfi/Octopus/blob/master/ServiceContainer/OctopusServiceContainerInterface.php) [$container](#property-container) ;
 
 - Inherited properties
     - protected array [Application::$commands](#property-commands) ;
@@ -73,7 +74,7 @@ class <span class="pl-k">UniToolApplication</span> extends [Application](https:/
     - public [__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/__construct.md)() : void
     - public [getApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getApplicationDir.md)() : string
     - public [getUniverseDependenciesDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDependenciesDir.md)() : string
-    - public [getImporters](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getImporters.md)() : [DependencySystemImporterInterface[]](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface.md)
+    - public [getImporter](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getImporter.md)(string $dependencySystemName) : null | object
     - public [getUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectory.md)() : string
     - public [checkApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkApplicationDir.md)() : string
     - public [checkUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkUniverseDirectory.md)() : string
@@ -172,6 +173,13 @@ Properties
     
     
 
+- <span id="property-container"><b>container</b></span>
+
+    This property holds the container for this instance.
+    It is used to load importers.
+    
+    
+
 - <span id="property-commands"><b>commands</b></span>
 
     This property holds the array of commands for this instance.
@@ -223,7 +231,7 @@ Methods
 - [UniToolApplication::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/__construct.md) &ndash; Builds the UniToolApplication instance.
 - [UniToolApplication::getApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getApplicationDir.md) &ndash; Returns a valid application directory.
 - [UniToolApplication::getUniverseDependenciesDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDependenciesDir.md) &ndash; Returns the universe dependencies directory.
-- [UniToolApplication::getImporters](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getImporters.md) &ndash; Returns the importers of this instance.
+- [UniToolApplication::getImporter](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getImporter.md) &ndash; or null if not defined.
 - [UniToolApplication::getUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectory.md) &ndash; Returns the location of a valid universe directory.
 - [UniToolApplication::checkApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkApplicationDir.md) &ndash; Returns the application directory if it actually exists.
 - [UniToolApplication::checkUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkUniverseDirectory.md) &ndash; Returns the universe directory if it actually exists.

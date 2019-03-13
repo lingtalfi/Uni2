@@ -4,7 +4,7 @@
 
 The GitGalaxyDependencySystemImporter class
 ================
-2019-03-12 --> 2019-03-12
+2019-03-12 --> 2019-03-13
 
 
 
@@ -45,17 +45,13 @@ class <span class="pl-k">GitGalaxyDependencySystemImporter</span> extends [Abstr
 - Properties
     - protected string [$baseRepoName](#property-baseRepoName) ;
 
-- Inherited properties
-    - protected string [AbstractGitDependencySystemImporter::$dependencySystemName](#property-dependencySystemName) ;
-
 - Methods
-    - public [__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/__construct.md)(string $dependencySystemName) : void
+    - public [__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/__construct.md)() : void
     - public [getPackageSymbolicName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/getPackageSymbolicName.md)(string $packageImportName) : string
     - public [importPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/importPackage.md)(string $packageImportName, string $destDir, Ling\CliTools\Output\OutputInterface $output, array $options = []) : bool
     - public [setBaseRepoName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/setBaseRepoName.md)(string $baseRepoName) : void
 
 - Inherited methods
-    - public [AbstractGitDependencySystemImporter::getDependencySystemName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/getDependencySystemName.md)() : string
     - public [AbstractGitDependencySystemImporter::doImportPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/doImportPackage.md)(string $repoPath, string $destDir, Ling\CliTools\Output\OutputInterface $output, array $options = []) : bool
 
 }
@@ -72,12 +68,6 @@ Properties
     
     
 
-- <span id="property-dependencySystemName"><b>dependencySystemName</b></span>
-
-    This property holds the dependencySystemName for this instance.
-    
-    
-
 
 
 Methods
@@ -87,7 +77,6 @@ Methods
 - [GitGalaxyDependencySystemImporter::getPackageSymbolicName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/getPackageSymbolicName.md) &ndash; Returns the package symbolic name from the given $packageImportName.
 - [GitGalaxyDependencySystemImporter::importPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/importPackage.md) &ndash; Imports the $packageImportName under the $destDir, and returns whether or not the import was successful.
 - [GitGalaxyDependencySystemImporter::setBaseRepoName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/setBaseRepoName.md) &ndash; Sets the baseRepoName.
-- [AbstractGitDependencySystemImporter::getDependencySystemName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/getDependencySystemName.md) &ndash; Returns the name of the dependency system.
 - [AbstractGitDependencySystemImporter::doImportPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/doImportPackage.md) &ndash; Imports the github.com repo which path is $repoPath to the $destDir directory.
 
 

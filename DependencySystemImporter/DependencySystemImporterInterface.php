@@ -18,13 +18,6 @@ interface DependencySystemImporterInterface
 {
 
 
-    /**
-     * Returns the name of the dependency system used by this instance.
-     *
-     * @return string
-     */
-    public function getDependencySystemName(): string;
-
 
     /**
      *

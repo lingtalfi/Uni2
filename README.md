@@ -1,6 +1,6 @@
 Uni2
 ===========
-2019-03-12
+2019-03-07
 
 
 
@@ -27,10 +27,10 @@ Or just download it and place it where you want otherwise.
 
 Summary
 ===========
-- [Uni2 api](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+- [Uni2 api](https://github.com/lingtalfi/WebBox/blob/master/doc/api/Uni2.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [What is Uni2?](#what-is-uni2)
     - [Help](#help)
-- [The concepts behind Uni2](#the-concepts-behind-uni2)
+- [The concepts behind Uni2](#the-concepts-behing-uni2)
 - [Universe, galaxies, planets](#universe-galaxies-planets)
     - [The planet long name](#the-planet-long-name)
     - [The planet short name](#the-planet-short-name)
@@ -40,8 +40,8 @@ Summary
     - [Meet the naive system](#meet-the-naive-system)
     - [Dependencies to non-planets](#dependencies-to-non-planets)
 - [The planet structure](#the-planet-structure)
-    - [meta-info.byml](#meta-infobyml)
-    - [dependencies.byml](#dependenciesbyml)
+    - [meta-info.byml](#meta-info-byml)
+    - [dependencies.byml](#dependencies-byml)
 - [The local server](#the-local-server)
     - [Introducing the local server](#introducing-the-local-server)
     - [The local server on your machine](#the-local-server-on-your-machine)
@@ -784,7 +784,7 @@ And so the system that would download her items would be different than the syst
 So again, a dependency system is used to download a certain type of (dependency) item from the web.
 
 
-Now the actual object responsible for the downloading is called an [importer](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface.md).
+Now the actual object responsible for the downloading is called an importer.
 
 
 Package import name vs package symbolic name
@@ -869,10 +869,6 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
-- 1.0.1 -- 2019-03-12
-
-    - fix VersionCommand returning the Uni2 version instead of the uni-tool version
-
-- 1.0.0 -- 2019-03-12
+- 1.0.0 -- 2019-03-11
 
     - initial commit

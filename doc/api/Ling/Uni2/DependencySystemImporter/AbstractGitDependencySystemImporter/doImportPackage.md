@@ -71,5 +71,5 @@ See Also
 
 The [AbstractGitDependencySystemImporter](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter.md) class.
 
-Previous method: [getDependencySystemName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/getDependencySystemName.md)<br>
+
 

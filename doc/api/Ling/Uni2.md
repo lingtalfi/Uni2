@@ -1,6 +1,6 @@
 Ling/Uni2
 ================
-2019-03-12 --> 2019-03-12
+2019-03-12 --> 2019-03-13
 
 
 
@@ -12,7 +12,7 @@ Table of contents
     - [UniToolApplication::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/__construct.md) &ndash; Builds the UniToolApplication instance.
     - [UniToolApplication::getApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getApplicationDir.md) &ndash; Returns a valid application directory.
     - [UniToolApplication::getUniverseDependenciesDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDependenciesDir.md) &ndash; Returns the universe dependencies directory.
-    - [UniToolApplication::getImporters](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getImporters.md) &ndash; Returns the importers of this instance.
+    - [UniToolApplication::getImporter](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getImporter.md) &ndash; or null if not defined.
     - [UniToolApplication::getUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectory.md) &ndash; Returns the location of a valid universe directory.
     - [UniToolApplication::checkApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkApplicationDir.md) &ndash; Returns the application directory if it actually exists.
     - [UniToolApplication::checkUniverseDirectory](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkUniverseDirectory.md) &ndash; Returns the universe directory if it actually exists.
@@ -165,13 +165,10 @@ Table of contents
     - [UniToolGenericCommand::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/UniToolGenericCommand/__construct.md) &ndash; Builds the UniToolGenericCommand instance.
     - [UniToolGenericCommand::setApplication](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/UniToolGenericCommand/setApplication.md) &ndash; Sets the application.
 - [AbstractGitDependencySystemImporter](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter.md) &ndash; The BaseGitDependencySystemImporter class.
-    - [AbstractGitDependencySystemImporter::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/__construct.md) &ndash; Builds the AbstractGitDependencySystemImporter instance.
-    - [AbstractGitDependencySystemImporter::getDependencySystemName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/getDependencySystemName.md) &ndash; Returns the name of the dependency system.
     - [AbstractGitDependencySystemImporter::doImportPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/doImportPackage.md) &ndash; Imports the github.com repo which path is $repoPath to the $destDir directory.
     - [DependencySystemImporterInterface::importPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/importPackage.md) &ndash; Imports the $packageImportName under the $destDir, and returns whether or not the import was successful.
     - [DependencySystemImporterInterface::getPackageSymbolicName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/getPackageSymbolicName.md) &ndash; Returns the package symbolic name from the given $packageImportName.
 - [DependencySystemImporterInterface](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface.md) &ndash; The DependencySystemImporterInterface interface.
-    - [DependencySystemImporterInterface::getDependencySystemName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/getDependencySystemName.md) &ndash; Returns the name of the dependency system used by this instance.
     - [DependencySystemImporterInterface::importPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/importPackage.md) &ndash; Imports the $packageImportName under the $destDir, and returns whether or not the import was successful.
     - [DependencySystemImporterInterface::getPackageSymbolicName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/getPackageSymbolicName.md) &ndash; Returns the package symbolic name from the given $packageImportName.
 - [GitGalaxyDependencySystemImporter](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter.md) &ndash; The GitGalaxyDependencySystemImporter class.
@@ -179,13 +176,10 @@ Table of contents
     - [GitGalaxyDependencySystemImporter::getPackageSymbolicName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/getPackageSymbolicName.md) &ndash; Returns the package symbolic name from the given $packageImportName.
     - [GitGalaxyDependencySystemImporter::importPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/importPackage.md) &ndash; Imports the $packageImportName under the $destDir, and returns whether or not the import was successful.
     - [GitGalaxyDependencySystemImporter::setBaseRepoName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/setBaseRepoName.md) &ndash; Sets the baseRepoName.
-    - [AbstractGitDependencySystemImporter::getDependencySystemName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/getDependencySystemName.md) &ndash; Returns the name of the dependency system.
     - [AbstractGitDependencySystemImporter::doImportPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/doImportPackage.md) &ndash; Imports the github.com repo which path is $repoPath to the $destDir directory.
 - [GitRepoDependencySystemImporter](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitRepoDependencySystemImporter.md) &ndash; The GitRepoDependencySystemImporter class.
     - [GitRepoDependencySystemImporter::importPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitRepoDependencySystemImporter/importPackage.md) &ndash; Imports the $packageImportName under the $destDir, and returns whether or not the import was successful.
     - [GitRepoDependencySystemImporter::getPackageSymbolicName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitRepoDependencySystemImporter/getPackageSymbolicName.md) &ndash; Returns the package symbolic name from the given $packageImportName.
-    - [AbstractGitDependencySystemImporter::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/__construct.md) &ndash; Builds the AbstractGitDependencySystemImporter instance.
-    - [AbstractGitDependencySystemImporter::getDependencySystemName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/getDependencySystemName.md) &ndash; Returns the name of the dependency system.
     - [AbstractGitDependencySystemImporter::doImportPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/AbstractGitDependencySystemImporter/doImportPackage.md) &ndash; Imports the github.com repo which path is $repoPath to the $destDir directory.
 - [ErrorSummary](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/ErrorSummary/ErrorSummary.md) &ndash; The ErrorSummary class.
     - [ErrorSummary::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/ErrorSummary/ErrorSummary/__construct.md) &ndash; Builds the ErrorSummary instance.
@@ -198,15 +192,15 @@ Table of contents
     - [DependencyMasterHelper::getPlanetItem](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getPlanetItem.md) &ndash; or false otherwise (if the planet is not referenced in the dependency master array, or the planet name is invalid).
     - [DependencyMasterHelper::getDependencyMapByPlanetName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/DependencyMasterHelper/getDependencyMapByPlanetName.md) &ndash; and returns a dependency map array.
 - [OutputHelper](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/OutputHelper.md) &ndash; The OutputHelper class.
-    - [OutputHelper::success](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/OutputHelper/success.md) &ndash; Writes a success message to the output.
-    - [OutputHelper::info](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/OutputHelper/info.md) &ndash; Writes an info message to the output.
-    - [OutputHelper::command](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/OutputHelper/command.md) &ndash; Writes a command message to the output.
-    - [OutputHelper::warning](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/OutputHelper/warning.md) &ndash; Writes a warning message to the output.
-    - [OutputHelper::error](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/OutputHelper/error.md) &ndash; Writes an error message to the output.
-    - [OutputHelper::discover](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/OutputHelper/discover.md) &ndash; Writes a discover message to the output.
-    - [OutputHelper::i](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/OutputHelper/i.md) &ndash; Returns an indent string which $length is proportional to the given $level.
-    - [OutputHelper::j](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/OutputHelper/j.md) &ndash; Returns another indent string which $length is proportional to the given $level.
-    - [OutputHelper::s](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Helper/OutputHelper/s.md) &ndash; Returns an indent block of white space, which $length is proportional to the given $level.
+    - [VirginiaMessageHelper::success](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/success.md) &ndash; Writes a success message to the output.
+    - [VirginiaMessageHelper::info](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/info.md) &ndash; Writes an info message to the output.
+    - [VirginiaMessageHelper::command](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/command.md) &ndash; Writes a command message to the output.
+    - [VirginiaMessageHelper::warning](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/warning.md) &ndash; Writes a warning message to the output.
+    - [VirginiaMessageHelper::error](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/error.md) &ndash; Writes an error message to the output.
+    - [VirginiaMessageHelper::discover](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/discover.md) &ndash; Writes a discover message to the output.
+    - [VirginiaMessageHelper::i](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/i.md) &ndash; Returns an indent string which $length is proportional to the given $level.
+    - [VirginiaMessageHelper::j](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/j.md) &ndash; Returns another indent string which $length is proportional to the given $level.
+    - [VirginiaMessageHelper::s](https://github.com/lingtalfi/CliTools/blob/master/doc/api/Ling/CliTools/Helper/VirginiaMessageHelper/s.md) &ndash; Returns an indent block of white space, which $length is proportional to the given $level.
 - [LocalServer](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer.md) &ndash; The LocalServer class.
     - [LocalServer::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer/__construct.md) &ndash; Builds the LocalServer instance.
     - [LocalServer::exists](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/LocalServer/LocalServer/exists.md) &ndash; Returns whether the local server exists.
@@ -237,6 +231,7 @@ Dependencies
 - [BabyYaml](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/BabyYaml)
 - [Bat](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Bat)
 - [CliTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/CliTools)
+- [Octopus](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Octopus)
 - [UniverseTools](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/UniverseTools)
 - [DirScanner](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/DirScanner)
 

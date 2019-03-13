@@ -232,7 +232,6 @@ class ImportUtil
         $appReplacedItemDir = $options['_appReplacedItemDir'] ?? $appItemDir;
 
 
-        $importers = $this->application->getImporters();
         $depMaster = $this->application->getDependencyMasterConf();
         $appDir = $this->application->getApplicationDir();
         $appUniverseDir = $appDir . "/universe";
@@ -249,11 +248,11 @@ class ImportUtil
         }
 
 
-        if (true === array_key_exists($dependencySystem, $importers)) {
-            /**
-             * @var $importer DependencySystemImporterInterface
-             */
-            $importer = $importers[$dependencySystem];
+        /**
+         * @var $importer DependencySystemImporterInterface
+         */
+        $importer = $this->application->getImporter($dependencySystem);
+        if (null !== $importer) {
             $packageSymbolicName = $importer->getPackageSymbolicName($packageImportName);
 
 
@@ -461,11 +460,11 @@ class ImportUtil
                             foreach ($dependencies['dependencies'] as $system => $packages) {
                                 $isDepPlanet = (in_array($system, $galaxies, true));
 
-                                if (array_key_exists($system, $importers)) {
-                                    /**
-                                     * @var $depImporter DependencySystemImporterInterface
-                                     */
-                                    $depImporter = $importers[$system];
+                                /**
+                                 * @var $depImporter DependencySystemImporterInterface
+                                 */
+                                $depImporter = $this->application->getImporter($system);
+                                if (null !== $depImporter) {
 
                                     foreach ($packages as $package => $version) {
 

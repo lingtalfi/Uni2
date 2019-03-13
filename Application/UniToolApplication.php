@@ -12,10 +12,11 @@ use Ling\CliTools\Input\ArrayInput;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\CliTools\Program\Application;
+use Ling\Octopus\Exception\OctopusServiceErrorException;
+use Ling\Octopus\ServiceContainer\OctopusServiceContainerInterface;
+use Ling\Octopus\ServiceContainer\RedOctopusServiceContainer;
 use Ling\Uni2\Command\UniToolGenericCommand;
 use Ling\Uni2\DependencySystemImporter\DependencySystemImporterInterface;
-use Ling\Uni2\DependencySystemImporter\GitGalaxyDependencySystemImporter;
-use Ling\Uni2\DependencySystemImporter\GitRepoDependencySystemImporter;
 use Ling\Uni2\Exception\Uni2Exception;
 use Ling\Uni2\Helper\OutputHelper as H;
 use Ling\Uni2\LocalServer\LocalServer;
@@ -134,6 +135,15 @@ class UniToolApplication extends Application
 
 
     /**
+     * This property holds the container for this instance.
+     * It is used to load importers.
+     *
+     * @var OctopusServiceContainerInterface
+     */
+    private $container;
+
+
+    /**
      * Builds the UniToolApplication instance.
      */
     public function __construct()
@@ -192,20 +202,12 @@ class UniToolApplication extends Application
         $this->registerCommand("Ling\Uni2\Command\CreateDependencyMasterCommand", "create-master");
         $this->registerCommand("Ling\Uni2\Command\Internal\PackUni2Command", "private:pack");
 
-//        $this->registerCommand("Ling\Uni2\Command\DependencyMasterPathCommand", "info"); // info about a planet: meta and recursive dependencies
 
-//        $this->registerCommand("Ling\Uni2\Command\HelpCommand", "import-galaxy");
+        $universeMeta = BabyYamlUtil::readFile(__DIR__ . '/../universe-meta.byml');
+        $this->container = new RedOctopusServiceContainer();
+        $this->container->build($universeMeta['importers']);
 
 
-        $lingImporter = new GitGalaxyDependencySystemImporter("Ling");
-        $lingImporter->setBaseRepoName("lingtalfi");
-
-        $gitImporter = new GitRepoDependencySystemImporter("git");
-
-        $this->importers = [
-            $lingImporter->getDependencySystemName() => $lingImporter,
-            $gitImporter->getDependencySystemName() => $gitImporter,
-        ];
     }
 
 
@@ -233,15 +235,21 @@ class UniToolApplication extends Application
         return $appDir . "/universe-dependencies";
     }
 
+
     /**
-     * Returns the importers of this instance.
-     * It's an array of dependencySystemName => DependencySystemImporterInterface.
+     * Returns the importer for the given dependency system,
+     * or null if not defined.
      *
-     * @return DependencySystemImporterInterface[]
+     * @param string $dependencySystemName
+     * @return null|object
      */
-    public function getImporters(): array
+    public function getImporter(string $dependencySystemName)
     {
-        return $this->importers;
+        try {
+            return $this->container->get($dependencySystemName);
+        } catch (OctopusServiceErrorException $e) {
+            return null;
+        }
     }
 
 

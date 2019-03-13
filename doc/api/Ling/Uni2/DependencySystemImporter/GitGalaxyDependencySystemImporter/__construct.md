@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [GitGalaxyDependencySystemImporter::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/__construct.md)(string $dependencySystemName) : void
+public [GitGalaxyDependencySystemImporter::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/GitGalaxyDependencySystemImporter/__construct.md)() : void
 
 
 
@@ -29,10 +29,7 @@ Builds the GitGalaxyDependencySystemImporter instance.
 Parameters
 ================
 
-
-- dependencySystemName
-
-    
+This method has no parameters.
 
 
 Return values

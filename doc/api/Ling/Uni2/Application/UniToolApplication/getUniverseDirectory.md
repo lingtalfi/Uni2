@@ -50,5 +50,5 @@ See Also
 
 The [UniToolApplication](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication.md) class.
 
-Previous method: [getImporters](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getImporters.md)<br>Next method: [checkApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkApplicationDir.md)<br>
+Previous method: [getImporter](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getImporter.md)<br>Next method: [checkApplicationDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/checkApplicationDir.md)<br>
 

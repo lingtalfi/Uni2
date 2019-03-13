@@ -4,7 +4,7 @@
 
 The DependencySystemImporterInterface class
 ================
-2019-03-12 --> 2019-03-12
+2019-03-12 --> 2019-03-13
 
 
 
@@ -27,7 +27,6 @@ Class synopsis
 abstract class <span class="pl-k">DependencySystemImporterInterface</span>  {
 
 - Methods
-    - abstract public [getDependencySystemName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/getDependencySystemName.md)() : string
     - abstract public [importPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/importPackage.md)(string $packageImportName, string $destDir, Ling\CliTools\Output\OutputInterface $output, array $options = []) : bool
     - abstract public [getPackageSymbolicName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/getPackageSymbolicName.md)(string $packageImportName) : string
 
@@ -41,7 +40,6 @@ abstract class <span class="pl-k">DependencySystemImporterInterface</span>  {
 Methods
 ==============
 
-- [DependencySystemImporterInterface::getDependencySystemName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/getDependencySystemName.md) &ndash; Returns the name of the dependency system used by this instance.
 - [DependencySystemImporterInterface::importPackage](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/importPackage.md) &ndash; Imports the $packageImportName under the $destDir, and returns whether or not the import was successful.
 - [DependencySystemImporterInterface::getPackageSymbolicName](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/DependencySystemImporter/DependencySystemImporterInterface/getPackageSymbolicName.md) &ndash; Returns the package symbolic name from the given $packageImportName.
 

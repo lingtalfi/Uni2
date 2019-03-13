@@ -60,34 +60,6 @@ use Ling\Uni2\Helper\OutputHelper as H;
 abstract class AbstractGitDependencySystemImporter implements DependencySystemImporterInterface
 {
 
-    /**
-     * This property holds the dependencySystemName for this instance.
-     * @var string
-     */
-    protected $dependencySystemName;
-
-
-    /**
-     * Builds the AbstractGitDependencySystemImporter instance.
-     *
-     * @param string $dependencySystemName
-     */
-    public function __construct(string $dependencySystemName)
-    {
-        $this->dependencySystemName = $dependencySystemName;
-    }
-
-
-    /**
-     * Returns the name of the dependency system.
-     *
-     *
-     * @return string
-     */
-    public function getDependencySystemName(): string
-    {
-        return $this->dependencySystemName;
-    }
 
 
     /**

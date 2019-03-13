@@ -71,9 +71,7 @@ class CheckCommand extends UniToolGenericCommand
         $planetDirs = PlanetTool::getPlanetDirs($universeDir);
 
 
-
         $galaxies = $this->application->getKnownGalaxies();
-        $importers = $this->application->getImporters();
 
 
         H::info(H::i($indentLevel) . "Checking application directory for potential problems:" . PHP_EOL, $output);
@@ -83,8 +81,6 @@ class CheckCommand extends UniToolGenericCommand
 
             list($galaxyName, $planetName) = PlanetTool::getGalaxyNamePlanetNameByDir($planetDir);
             $planetId = $galaxyName . "/" . $planetName;
-
-
 
 
             $meta = MetaInfoTool::parseInfo($planetDir);
@@ -102,14 +98,13 @@ class CheckCommand extends UniToolGenericCommand
                 foreach ($packageImportNames as $packageImportName) {
 
 
+                    /**
+                     * @var $importer DependencySystemImporterInterface
+                     */
+                    $importer = $this->application->getImporter($system);
 
+                    if (null !== $importer) {
 
-                    if (array_key_exists($system, $importers)) {
-
-                        /**
-                         * @var $importer DependencySystemImporterInterface
-                         */
-                        $importer = $importers[$system];
                         $packageSymbolicName = $importer->getPackageSymbolicName($packageImportName);
 
 
