@@ -41,7 +41,7 @@ use Ling\Uni2\Helper\OutputHelper as H;
  * -----------
  * - -f: force mode. By default, if a file exists at the path specified with the $path option,
  *      then the command does nothing (it aborts).
- *      To force the creation of the directory, set this flag: it will overwrite the **$path** directory/entry if
+ *      To force the creation of the directory, set this flag: it will remove the **$path** directory/entry if
  *      it exists before creating the new directory.
  *
  *
@@ -57,7 +57,7 @@ class PackUni2Command extends UniToolGenericCommand
     public function run(InputInterface $input, OutputInterface $output)
     {
 
-        $indentLevel = 0;
+        $indentLevel = $this->application->getBaseIndent();
         $path = $input->getOption("path");
         $forceMode = $input->hasFlag("f");
 
@@ -95,6 +95,7 @@ class PackUni2Command extends UniToolGenericCommand
                     $myInput = new ArrayInput();
                     $myInput->setItems([
                         "application-dir" => $path,
+                        "indent" => $indentLevel + 1,
                         ":import-map" => true,
                         "-f" => true,
                         "-n" => true,
@@ -107,6 +108,7 @@ class PackUni2Command extends UniToolGenericCommand
                     //--------------------------------------------
                     $myInput = new ArrayInput();
                     $myInput->setItems([
+                        "indent" => $indentLevel + 1,
                         "application-dir" => $path,
                         ":clean" => true,
                     ]);

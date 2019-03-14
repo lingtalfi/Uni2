@@ -4,7 +4,7 @@
 
 The ImportUtil class
 ================
-2019-03-12 --> 2019-03-13
+2019-03-12 --> 2019-03-14
 
 
 
@@ -96,4 +96,4 @@ Ling\Uni2\Util\ImportUtil
 
 SeeAlso
 ==============
-Previous class: [DependencyMasterBuilderUtil](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/DependencyMasterBuilderUtil.md)<br>
+Previous class: [DependencyMasterDiffUtil](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/DependencyMasterDiffUtil.md)<br>

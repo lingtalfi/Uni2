@@ -4,7 +4,7 @@
 
 The PackUni2Command class
 ================
-2019-03-12 --> 2019-03-13
+2019-03-12 --> 2019-03-14
 
 
 
@@ -42,7 +42,7 @@ Flags
 -----------
 - -f: force mode. By default, if a file exists at the path specified with the $path option,
 then the command does nothing (it aborts).
-To force the creation of the directory, set this flag: it will overwrite the **$path** directory/entry if
+To force the creation of the directory, set this flag: it will remove the **$path** directory/entry if
 it exists before creating the new directory.
 
 

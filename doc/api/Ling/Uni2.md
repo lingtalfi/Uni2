@@ -1,6 +1,6 @@
 Ling/Uni2
 ================
-2019-03-12 --> 2019-03-13
+2019-03-12 --> 2019-03-14
 
 
 
@@ -220,6 +220,9 @@ Table of contents
     - [PostInstallHandlerInterface::handle](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/Handler/PostInstallHandlerInterface/handle.md) &ndash; Handles the post install process of a post install directive.
 - [DependencyMasterBuilderUtil](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/DependencyMasterBuilderUtil.md) &ndash; The DependencyMasterBuilderUtil class.
     - [DependencyMasterBuilderUtil::createDependencyMasterByUniverseDir](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/DependencyMasterBuilderUtil/createDependencyMasterByUniverseDir.md) &ndash; Creates the dependency master file for the given $universeDir.
+- [DependencyMasterDiffUtil](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/DependencyMasterDiffUtil.md) &ndash; The DependencyMasterDiffUtil class.
+    - [DependencyMasterDiffUtil::versionDiff](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/DependencyMasterDiffUtil/versionDiff.md) &ndash; older dependency master file), and returns them in the form of an array.
+    - [DependencyMasterDiffUtil::versionDiffByConf](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/DependencyMasterDiffUtil/versionDiffByConf.md) &ndash; Same as the versionDiff method, but takes the dependency master confs as arguments.
 - [ImportUtil](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil.md) &ndash; The ImportUtil class.
     - [ImportUtil::__construct](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil/__construct.md) &ndash; Builds the ImportUtil instance.
     - [ImportUtil::setErrorSummary](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil/setErrorSummary.md) &ndash; Sets the errorSummary.

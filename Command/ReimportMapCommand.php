@@ -166,6 +166,7 @@ class ReimportMapCommand extends UniToolGenericCommand
                         $helper->importPlanet($longPlanetName, $this->application, $output, [
                             "forceMode" => $forceMode,
                             "importMode" => $this->importMode,
+                            "indentLevel" => $indentLevel+1,
                         ]);
 
                     } else {

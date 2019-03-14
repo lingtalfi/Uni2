@@ -4,7 +4,7 @@
 
 The DependencyMasterBuilderUtil class
 ================
-2019-03-12 --> 2019-03-13
+2019-03-12 --> 2019-03-14
 
 
 
@@ -53,4 +53,4 @@ Ling\Uni2\Util\DependencyMasterBuilderUtil
 
 SeeAlso
 ==============
-Previous class: [PostInstallHandlerInterface](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/Handler/PostInstallHandlerInterface.md)<br>Next class: [ImportUtil](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/ImportUtil.md)<br>
+Previous class: [PostInstallHandlerInterface](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/PostInstall/Handler/PostInstallHandlerInterface.md)<br>Next class: [DependencyMasterDiffUtil](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Util/DependencyMasterDiffUtil.md)<br>
