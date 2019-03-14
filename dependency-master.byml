@@ -606,14 +606,15 @@ galaxies:
             post_install: []
         
         LingTalfi: 
-            version: 1.0.0
+            version: 1.1.1
             dependencies: 
                 Ling: 
                     - DocTools
                     - CliTools
-                    - UniverseTools
                     - BabyYaml
                     - Bat
+                    - Uni2
+                    - UniverseTools
                     - DirScanner
                 
             
@@ -1211,7 +1212,7 @@ galaxies:
             post_install: []
         
         Uni2: 
-            version: 1.0.0
+            version: 1.1.0
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1244,7 +1245,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.11.0
+            version: 1.11.1
             dependencies: 
                 Ling: 
                     - BabyYaml
