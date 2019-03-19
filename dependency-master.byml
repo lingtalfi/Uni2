@@ -95,8 +95,11 @@ galaxies:
             post_install: []
         
         BabyYaml: 
-            version: 1.1.1
+            version: 1.2.1
             dependencies: 
+                ClassicMonitorTrait: 
+                    - null
+                
                 Ling: 
                     - Bat
                 
@@ -109,12 +112,13 @@ galaxies:
             post_install: []
         
         Bat: 
-            version: 1.155
+            version: 1.156
             dependencies: 
                 Ling: 
+                    - ArrayToString
+                    - BeeFramework
                     - CopyDir
                     - Tiphaine
-                    - BeeFramework
                 
             
             post_install: []
@@ -182,7 +186,7 @@ galaxies:
             post_install: []
         
         CliTools: 
-            version: 1.5.0
+            version: 1.7.0
             dependencies: 
                 Ling: 
                     - UniversalLogger
@@ -296,7 +300,7 @@ galaxies:
             post_install: []
         
         DirScanner: 
-            version: 1.7.0
+            version: 1.8.0
             dependencies: 
                 Ling: 
                     - Bat
@@ -328,7 +332,7 @@ galaxies:
             post_install: []
         
         DocTools: 
-            version: 1.5.1
+            version: 1.5.2
             dependencies: 
                 Ling: 
                     - Bat
@@ -606,15 +610,17 @@ galaxies:
             post_install: []
         
         LingTalfi: 
-            version: 1.1.1
+            version: 1.6.0
             dependencies: 
                 Ling: 
                     - DocTools
                     - CliTools
-                    - BabyYaml
                     - Bat
-                    - Uni2
                     - UniverseTools
+                    - BabyYaml
+                    - Uni2
+                    - PlanetSitemap
+                    - SimpleCurl
                     - DirScanner
                 
             
@@ -876,6 +882,16 @@ galaxies:
             dependencies: []
             post_install: []
         
+        PlanetSitemap: 
+            version: 1.0.1
+            dependencies: 
+                Ling: 
+                    - Bat
+                    - DirScanner
+                
+            
+            post_install: []
+        
         Privilege: 
             version: 1.2.0
             dependencies: []
@@ -887,6 +903,17 @@ galaxies:
                 Ling: 
                     - CommandLineInput
                     - Output
+                
+            
+            post_install: []
+        
+        ProjectInfo: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - Bat
+                    - DirScanner
+                    - TokenFun
                 
             
             post_install: []
@@ -1033,6 +1060,11 @@ galaxies:
                     - ArrayToString
                 
             
+            post_install: []
+        
+        SimpleCurl: 
+            version: 1.0.2
+            dependencies: []
             post_install: []
         
         SimplePdoWrapper: 
@@ -1245,7 +1277,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.11.1
+            version: 1.11.3
             dependencies: 
                 Ling: 
                     - BabyYaml
