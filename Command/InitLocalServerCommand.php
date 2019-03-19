@@ -14,10 +14,7 @@ use Ling\Uni2\Helper\OutputHelper as H;
  * The InitLocalServerCommand class.
  *
  *
- * Creates the bigbang.php script at the root of the local server.
- *
- *
- *
+ * Creates the bigbang.php script at the root of the local server, if it doesn't exist already.
  *
  *
  */
