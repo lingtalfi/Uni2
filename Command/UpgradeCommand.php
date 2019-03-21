@@ -16,6 +16,12 @@ use Ling\Uni2\Helper\OutputHelper as H;
  *
  * This class implements the upgrade system defined in the @page(uni-tool upgrade system document).
  *
+ *
+ * Flags
+ * ----------
+ * -f: forces the command to reinstall the uni-tool.
+ *
+ *
  */
 class UpgradeCommand extends UniToolGenericCommand
 {
@@ -34,18 +40,20 @@ class UpgradeCommand extends UniToolGenericCommand
 
         $indentLevel = $this->application->getBaseIndent();
         $appDir = $this->application->checkApplicationDir();
-
+        $force = $input->hasFlag('f');
 
 
         //--------------------------------------------
         // UPDATING DEPENDENCY MASTER FILE (if necessary)
         //--------------------------------------------
         $version = $this->application->getUniToolLocalVersionNumber();
-        if (true === $this->application->isUniToolOutdated()) {
+        $isOutdated = $this->application->isUniToolOutdated();
+        if (true === $force || true === $isOutdated) {
             $webVersion = $this->application->getUniToolWebVersionNumber();
 
-            H::discover(H::i($indentLevel) . "A newer version of the uni-tool was found ($version --> $webVersion)." . PHP_EOL, $output);
-
+            if (true === $isOutdated) {
+                H::discover(H::i($indentLevel) . "A newer version of the uni-tool was found ($version --> $webVersion)." . PHP_EOL, $output);
+            }
 
 
             H::info(H::i($indentLevel + 1) . "Reinstalling the new <b>uni-tool</b> from the web." . PHP_EOL, $output);

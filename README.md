@@ -872,6 +872,10 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
+- 1.5.0 -- 2019-03-21
+
+    - update: the UpgradeCommand now has a -f flag to force re-install
+
 - 1.4.0 -- 2019-03-21
 
     - update: UpgradeCommand now reinstalls the uni-tool
