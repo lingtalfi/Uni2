@@ -112,13 +112,14 @@ galaxies:
             post_install: []
         
         Bat: 
-            version: 1.156
+            version: 1.161
             dependencies: 
                 Ling: 
                     - ArrayToString
                     - BeeFramework
                     - CopyDir
                     - Tiphaine
+                    - DirScanner
                 
             
             post_install: []
@@ -300,12 +301,8 @@ galaxies:
             post_install: []
         
         DirScanner: 
-            version: 1.8.0
-            dependencies: 
-                Ling: 
-                    - Bat
-                
-            
+            version: 1.10.0
+            dependencies: []
             post_install: []
         
         DirTransformer: 
@@ -332,7 +329,7 @@ galaxies:
             post_install: []
         
         DocTools: 
-            version: 1.5.2
+            version: 1.6.0
             dependencies: 
                 Ling: 
                     - Bat
