@@ -61,4 +61,4 @@ Ling\Uni2\Command\UpgradeCommand
 
 SeeAlso
 ==============
-Previous class: [UniToolGenericCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/UniToolGenericCommand.md)<br>Next class: [VersionCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/VersionCommand.md)<br>
+Previous class: [UniToolGenericCommand](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/UniToolGenericCommand.md)<br>Next class: [UpgradeCommandCopy](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Command/UpgradeCommandCopy.md)<br>

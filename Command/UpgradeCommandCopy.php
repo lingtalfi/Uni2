@@ -4,7 +4,6 @@
 namespace Ling\Uni2\Command;
 
 
-use Ling\Bat\ConsoleTool;
 use Ling\CliTools\Input\ArrayInput;
 use Ling\CliTools\Input\InputInterface;
 use Ling\CliTools\Output\OutputInterface;
@@ -17,7 +16,7 @@ use Ling\Uni2\Helper\OutputHelper as H;
  * This class implements the upgrade system defined in the @page(uni-tool upgrade system document).
  *
  */
-class UpgradeCommand extends UniToolGenericCommand
+class UpgradeCommandCopy extends UniToolGenericCommand
 {
 
 
@@ -45,15 +44,11 @@ class UpgradeCommand extends UniToolGenericCommand
             $webVersion = $this->application->getUniToolWebVersionNumber();
 
             H::discover(H::i($indentLevel) . "A newer version of the uni-tool was found ($version --> $webVersion)." . PHP_EOL, $output);
+            H::info(H::i($indentLevel + 1) . "Creating local copy of the dependency-master.byml from the web...", $output);
 
 
-
-            H::info(H::i($indentLevel + 1) . "Reinstalling the new <b>uni-tool</b> from the web." . PHP_EOL, $output);
-
-
-            $cmd = 'temp_file=$(mktemp); curl -fsSL https://raw.githubusercontent.com/lingtalfi/universe-naive-importer/master/installer.php > $temp_file; sudo php -f $temp_file;';
-
-            if (true === ConsoleTool::passThru($cmd)) {
+            if (true === $this->application->copyDependencyMasterFileFromWeb()) {
+                $output->write("<success>ok.</success>" . PHP_EOL);
 
 
                 H::info(H::i($indentLevel + 1) . 'Updating local info...', $output);
