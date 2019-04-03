@@ -95,7 +95,7 @@ galaxies:
             post_install: []
         
         BabyYaml: 
-            version: 1.2.1
+            version: 1.2.2
             dependencies: 
                 ClassicMonitorTrait: 
                     - null
@@ -112,7 +112,7 @@ galaxies:
             post_install: []
         
         Bat: 
-            version: 1.161
+            version: 1.169
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -187,7 +187,7 @@ galaxies:
             post_install: []
         
         CliTools: 
-            version: 1.9.0
+            version: 1.10.0
             dependencies: 
                 Ling: 
                     - UniversalLogger
@@ -301,7 +301,7 @@ galaxies:
             post_install: []
         
         DirScanner: 
-            version: 1.10.0
+            version: 1.11.1
             dependencies: []
             post_install: []
         
@@ -347,6 +347,18 @@ galaxies:
         Dreamer: 
             version: 1.0.0
             dependencies: []
+            post_install: []
+        
+        EasyConsoleMenu: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - BabyYaml
+                    - Bat
+                    - CliTools
+                    - KrankenStein
+                
+            
             post_install: []
         
         EchartsWrapper: 
@@ -601,24 +613,33 @@ galaxies:
             dependencies: []
             post_install: []
         
+        KrankenStein: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - BabyYaml
+                
+            
+            post_install: []
+        
         LinearFile: 
             version: 1.0.0
             dependencies: []
             post_install: []
         
         LingTalfi: 
-            version: 1.6.0
+            version: 1.7.0
             dependencies: 
                 Ling: 
                     - DocTools
                     - CliTools
                     - Bat
+                    - DirScanner
                     - UniverseTools
                     - BabyYaml
                     - Uni2
                     - PlanetSitemap
                     - SimpleCurl
-                    - DirScanner
                 
             
             post_install: []
@@ -1241,7 +1262,7 @@ galaxies:
             post_install: []
         
         Uni2: 
-            version: 1.4.0
+            version: 1.5.0
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1274,7 +1295,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.11.3
+            version: 1.12.0
             dependencies: 
                 Ling: 
                     - BabyYaml
