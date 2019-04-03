@@ -21,6 +21,7 @@ https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniT
 https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniToolWebVersionNumber.md
 https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDependenciesDir.md
 https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectory.md
+https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/getUniverseDirectoryName.md
 https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/isUniToolOutdated.md
 https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/onCommandInstantiated.md
 https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2/Application/UniToolApplication/run.md

@@ -872,6 +872,10 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
+- 1.7.0 -- 2019-04-03
+
+    - add UniToolApplication->getUniverseDirectoryName method
+    
 - 1.6.0 -- 2019-04-03
 
     - add MapHelper class
