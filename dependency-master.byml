@@ -632,6 +632,28 @@ galaxies:
             
             post_install: []
         
+        Light: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - BabyYaml
+                    - Bat
+                    - DirScanner
+                    - Octopus
+                    - PhpUploadFileFix
+                
+            
+            post_install: []
+        
+        Light_PrettyError: 
+            version: 1.0.0
+            dependencies: []
+            post_install: 
+                composer: 
+                    - require filp/whoops
+                
+            
+        
         LinearFile: 
             version: 1.0.0
             dependencies: []
@@ -1272,7 +1294,7 @@ galaxies:
             post_install: []
         
         Uni2: 
-            version: 1.7.0
+            version: 1.7.1
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1305,7 +1327,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.12.1
+            version: 1.13.0
             dependencies: 
                 Ling: 
                     - BabyYaml

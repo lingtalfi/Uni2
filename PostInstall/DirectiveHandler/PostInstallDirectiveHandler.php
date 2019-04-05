@@ -4,6 +4,8 @@
 namespace Ling\Uni2\PostInstall\DirectiveHandler;
 
 
+use Ling\Bat\ConsoleTool;
+use Ling\Bat\OsTool;
 use Ling\CliTools\Output\OutputInterface;
 use Ling\Uni2\Helper\OutputHelper as H;
 use Ling\Uni2\PostInstall\Handler\PostInstallHandlerInterface;
@@ -26,7 +28,7 @@ class PostInstallDirectiveHandler
      *
      * The post install directive configuration.
      * It can be a string or an array and depends on the type.
-     * See the @(post install directive configuration page) for more info.
+     * See the @page(post install directives page) for more info.
      *
      * @param OutputInterface $output
      * The output to writes to.
@@ -39,6 +41,8 @@ class PostInstallDirectiveHandler
      * - application: Uni2\Application\UniToolApplication. The application instance.
      * - planetName: string. The name of the planet being processed.
      *
+     *
+     * @throws \Exception
      */
     public function handleDirective(string $directiveName, $directiveConf, OutputInterface $output, array $options = [])
     {
@@ -79,6 +83,25 @@ class PostInstallDirectiveHandler
                     $type = gettype($directiveConf);
                     $this->warn("The argument to this directive must be an array, $type given.", $indentLevel + 1, $output);
                 }
+                break;
+
+            case "composer":
+                $this->info("Calling the <bold>$directiveName</bold> directive:", $indentLevel, $output);
+                if (false === is_array($directiveConf)) {
+                    $directiveConf = [$directiveConf];
+                }
+
+                if (true === OsTool::hasProgram("composer")) {
+                    foreach ($directiveConf as $cmd) {
+                        $cmd = "composer " . $cmd;
+                        $this->info("Executing command: <bold>$cmd</bold>:", $indentLevel + 1, $output);
+                        ConsoleTool::passThru($cmd);
+                    }
+                } else {
+                    $this->warn("The composer program was not found on this machine. Please install composer (https://getcomposer.org/) and retry. Skipping.", $indentLevel + 1, $output);
+                }
+
+
                 break;
             default:
                 $this->warn("Unknown post install directive <bold>$directiveName</bold>. This directive will not be executed.", $indentLevel, $output);

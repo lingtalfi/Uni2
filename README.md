@@ -600,6 +600,26 @@ post_install: []
 ```
 
 
+The post_install array looks like this:
+
+- handler: 
+    - name: string. The class name of the handler to call. 
+    - ?options: array. An array of options to pass to the handler.
+- composer: array of composer commands without the composer prefix. For instance: 
+    - require filp/whoops
+    
+    
+    
+Note: I personally experienced problems with the composer directive: sometimes it won't trigger. 
+The work around I found in this case was simply to retry until it works (generally 3-4 times did it for me).
+
+
+    
+
+
+    
+
+
 
 
 
@@ -871,6 +891,10 @@ When triggered, the upgrade process does the following steps:
 
 History Log
 =============
+
+- 1.8.0 -- 2019-04-05
+
+    - update PostInstallDirectiveHandler->handleDirective method, now handles composer post_install directives
 
 - 1.7.1 -- 2019-04-05
 

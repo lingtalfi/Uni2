@@ -38,7 +38,7 @@ Parameters
 
     The post install directive configuration.
 It can be a string or an array and depends on the type.
-See the @(post install directive configuration page) for more info.
+See the @page(post install directives page) for more info.
 
 - output
 
@@ -59,6 +59,11 @@ Return values
 
 Returns void.
 
+
+Exceptions thrown
+================
+
+- [Exception](http://php.net/manual/en/class.exception.php).&nbsp;
 
 
 
