@@ -872,6 +872,10 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
+- 1.7.1 -- 2019-04-05
+
+    - add composer plugin to bigbang.php script
+    
 - 1.7.0 -- 2019-04-03
 
     - add UniToolApplication->getUniverseDirectoryName method
