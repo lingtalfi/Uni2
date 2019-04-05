@@ -649,7 +649,8 @@ galaxies:
             version: 1.0.0
             dependencies: []
             post_install: 
-                composer: 
+                map: true
+                composer:
                     - require filp/whoops
                 
             
@@ -1294,7 +1295,7 @@ galaxies:
             post_install: []
         
         Uni2: 
-            version: 1.7.1
+            version: 1.8.0
             dependencies: 
                 Ling: 
                     - BabyYaml

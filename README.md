@@ -607,6 +607,10 @@ The post_install array looks like this:
     - ?options: array. An array of options to pass to the handler.
 - composer: array of composer commands without the composer prefix. For instance: 
     - require filp/whoops
+- map: string|null. Will map a directory found inside the installed planet to the application root directory.
+    By default: if null, the map value will be: "assets/map".
+    This means that all files found inside the "assets/map" directory at the root of the installed planet
+    will be copied to (and overwriting existing files with the same names) the application root directory.
     
     
     
@@ -892,9 +896,13 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
+- 1.9.0 -- 2019-04-05
+
+    - update PostInstallDirectiveHandler->handleDirective method, now handles map post_install directive
+    
 - 1.8.0 -- 2019-04-05
 
-    - update PostInstallDirectiveHandler->handleDirective method, now handles composer post_install directives
+    - update PostInstallDirectiveHandler->handleDirective method, now handles composer post_install directive
 
 - 1.7.1 -- 2019-04-05
 

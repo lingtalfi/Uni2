@@ -5,8 +5,10 @@ namespace Ling\Uni2\PostInstall\DirectiveHandler;
 
 
 use Ling\Bat\ConsoleTool;
+use Ling\Bat\FileSystemTool;
 use Ling\Bat\OsTool;
 use Ling\CliTools\Output\OutputInterface;
+use Ling\Uni2\Application\UniToolApplication;
 use Ling\Uni2\Helper\OutputHelper as H;
 use Ling\Uni2\PostInstall\Handler\PostInstallHandlerInterface;
 
@@ -21,6 +23,22 @@ class PostInstallDirectiveHandler
     /**
      * Handles a the given post install directive.
      *
+     *
+     * The following directives have been implemented:
+     *
+     * ```txt
+     * - handler: array. Delegates the handling to another class.
+     * ----- name: string. The class name of the handler to call.
+     * ----- ?options: array. An array of options to pass to the handler.
+     * - composer: array of composer commands without the composer prefix. For instance:
+     * ----- require filp/whoops
+     * - map: string|null. Will map a directory found inside the installed planet to the application root directory.
+     *          By default: if null, the map value will be: "assets/map".
+     *          This means that all files found inside the "assets/map" directory at the root of the installed planet
+     *          will be copied to (and overwriting existing files with the same names) the application root directory.
+     *
+     *
+     * ```
      *
      * @param string $directiveName . The directive type/name.
      *
@@ -42,6 +60,7 @@ class PostInstallDirectiveHandler
      * - planetName: string. The name of the planet being processed.
      *
      *
+     *
      * @throws \Exception
      */
     public function handleDirective(string $directiveName, $directiveConf, OutputInterface $output, array $options = [])
@@ -49,6 +68,34 @@ class PostInstallDirectiveHandler
 
         $indentLevel = $options['indentLevel'] ?? 0;
         switch ($directiveName) {
+            case "map":
+                /**
+                 * @var $application UniToolApplication
+                 */
+                $application = $options['application'];
+                $appDir = $application->getApplicationDir();
+                $planetName = $options['planetName'];
+                $planetDir = $options['planetDir'];
+
+                if (false === is_string($directiveConf)) {
+                    $directiveConf = "assets/map";
+                }
+
+                if (is_dir($appDir)) {
+
+                    $mapDir = $planetDir . "/" . $directiveConf;
+                    if (is_dir($mapDir)) {
+
+                        $this->info("Copying the map dir <b>$directiveConf</b> from planet <blue>$planetName</blue> to <b>$appDir</b>.", $indentLevel, $output);
+                        FileSystemTool::copyDir($mapDir, $appDir);
+                    } else {
+                        $this->warn("The map directory doesn't exist: <b>$mapDir</b>. Skipping this directive.", $indentLevel, $output);
+                    }
+                } else {
+                    $this->warn("The application directory doesn't exist: <b>$appDir</b>. Skipping this directive.", $indentLevel, $output);
+                }
+
+                break;
             case "handler":
                 $this->info("Calling the <bold>handler</bold> directive:", $indentLevel, $output);
                 if (is_array($directiveConf)) {
