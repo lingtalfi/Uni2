@@ -62,7 +62,7 @@ galaxies:
             post_install: []
         
         ArrayVariableResolver: 
-            version: 1.1.1
+            version: 1.1.2
             dependencies: 
                 Ling: 
                     - Bat
@@ -104,7 +104,7 @@ galaxies:
             post_install: []
         
         BabyYaml: 
-            version: 1.3.5
+            version: 1.4.0
             dependencies: 
                 Ling: 
                     - Bat
@@ -118,15 +118,15 @@ galaxies:
             post_install: []
         
         Bat: 
-            version: 1.177
+            version: 1.192
             dependencies: 
                 Ling: 
                     - ArrayToString
                     - BeeFramework
                     - CopyDir
+                    - DirScanner
                     - BabyYaml
                     - Tiphaine
-                    - DirScanner
                 
             
             post_install: []
@@ -175,12 +175,12 @@ galaxies:
             post_install: []
         
         CSRFTools: 
-            version: 1.0.1
+            version: 1.1.1
             dependencies: []
             post_install: []
         
         Chloroform: 
-            version: 1.6.9
+            version: 1.11.0
             dependencies: 
                 Ling: 
                     - CSRFTools
@@ -190,8 +190,18 @@ galaxies:
             
             post_install: []
         
+        Chloroform_HeliumRenderer: 
+            version: 1.2.0
+            dependencies: 
+                Ling: 
+                    - Bat
+                    - Chloroform
+                
+            
+            post_install: []
+        
         Chloroform_HydrogenRenderer: 
-            version: 1.0.2
+            version: 1.2.2
             dependencies: 
                 Ling: 
                     - Bat
@@ -375,7 +385,7 @@ galaxies:
             post_install: []
         
         DocTools: 
-            version: 1.8.2
+            version: 1.10.2
             dependencies: 
                 Ling: 
                     - Bat
@@ -386,6 +396,15 @@ galaxies:
                     - ArrayToTable
                     - ZeusTemplateEngine
                     - ParseDown
+                
+            
+            post_install: []
+        
+        DotMenu: 
+            version: 1.0.1
+            dependencies: 
+                Ling: 
+                    - Bat
                 
             
             post_install: []
@@ -510,7 +529,7 @@ galaxies:
             post_install: []
         
         HtmlPageTools: 
-            version: 1.6.1
+            version: 2.0.0
             dependencies: []
             post_install: []
         
@@ -670,17 +689,19 @@ galaxies:
             post_install: []
         
         Kit: 
-            version: 1.7.4
+            version: 1.11.1
             dependencies: 
                 Ling: 
                     - BabyYaml
+                    - Bat
+                    - DirScanner
                     - HtmlPageTools
                 
             
             post_install: []
         
         Kit_PicassoWidget: 
-            version: 1.28.1
+            version: 1.30.0
             dependencies: 
                 Ling: 
                     - Kit
@@ -696,7 +717,7 @@ galaxies:
             post_install: []
         
         Kit_PrototypeWidget: 
-            version: 1.0.1
+            version: 1.1.0
             dependencies: 
                 Ling: 
                     - HtmlPageTools
@@ -720,7 +741,7 @@ galaxies:
             post_install: []
         
         Light: 
-            version: 0.7.1
+            version: 0.13.1
             dependencies: 
                 Ling: 
                     - SicTools
@@ -731,6 +752,102 @@ galaxies:
                 
             
             post_install: []
+        
+        Light_AjaxFileUploadManager: 
+            version: 1.2.0
+            dependencies: 
+                Ling: 
+                    - Light
+                    - Light_Logger
+                    - Bat
+                    - CSRFTools
+                    - Light_Database
+                    - Light_UserManager
+                    - ThumbnailTools
+                    - Chloroform
+                
+            
+            post_install: 
+                map: true
+            
+        
+        Light_BMenu: 
+            version: 1.4.0
+            dependencies: 
+                Ling: 
+                    - DotMenu
+                
+            
+            post_install: 
+                map: true
+            
+        
+        Light_Bullsheet: 
+            version: 1.0.2
+            dependencies: 
+                Ling: 
+                    - Light
+                    - Bat
+                
+            
+            post_install: 
+                map: true
+            
+        
+        Light_Database: 
+            version: 1.2.0
+            dependencies: 
+                Ling: 
+                    - SimplePdoWrapper
+                
+            
+            post_install: 
+                map: true
+            
+        
+        Light_EasyRoute: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - BabyYaml
+                    - Light
+                    - Light_Initializer
+                
+            
+            post_install: 
+                map: true
+            
+        
+        Light_Firewall: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - Light
+                    - Light_PrerouteHub
+                    - Light_User
+                
+            
+            post_install: 
+                map: true
+            
+        
+        Light_Flasher: 
+            version: 1.2.0
+            dependencies: []
+            post_install: 
+                map: true
+            
+        
+        Light_HtmlPageCopilot: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - HtmlPageTools
+                
+            
+            post_install: 
+                map: true
+            
         
         Light_Initializer: 
             version: 1.1.2
@@ -744,7 +861,7 @@ galaxies:
             
         
         Light_Kit: 
-            version: 1.6.3
+            version: 1.12.1
             dependencies: 
                 Ling: 
                     - Bat
@@ -759,7 +876,7 @@ galaxies:
             
         
         Light_Kit_BootstrapWidgetLibrary: 
-            version: 1.7.1
+            version: 1.13.1
             dependencies: 
                 Ling: 
                     - Kit_PicassoWidget
@@ -773,7 +890,7 @@ galaxies:
             
         
         Light_Kit_Demo: 
-            version: 1.0.1
+            version: 1.2.0
             dependencies: []
             post_install: 
                 map: true
@@ -782,6 +899,35 @@ galaxies:
         Light_Kit_WebsiteBuilder: 
             version: 1.0.1
             dependencies: []
+            post_install: 
+                map: true
+            
+        
+        Light_Logger: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - Bat
+                
+            
+            post_install: 
+                map: true
+            
+        
+        Light_PasswordProtector: 
+            version: 1.0.0
+            dependencies: []
+            post_install: 
+                map: true
+            
+        
+        Light_PrerouteHub: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - Light
+                
+            
             post_install: 
                 map: true
             
@@ -803,9 +949,10 @@ galaxies:
             
         
         Light_ReverseRouter: 
-            version: 1.3.1
+            version: 1.4.0
             dependencies: 
                 Ling: 
+                    - Bat
                     - Light
                     - Light_Initializer
                 
@@ -815,14 +962,35 @@ galaxies:
             
         
         Light_User: 
-            version: 1.1.1
+            version: 1.4.0
             dependencies: []
             post_install: 
                 map: true
             
         
+        Light_UserDatabase: 
+            version: 1.8.1
+            dependencies: 
+                Ling: 
+                    - BabyYaml
+                    - Bat
+                    - Light
+                    - Light_Initializer
+                    - Light_PasswordProtector
+                    - Light_Bullsheet
+                    - Light_Database
+                    - TinyBullsheeter
+                    - MysqlCreateTableUtil
+                    - SimplePdoWrapper
+                    - SqlWizard
+                
+            
+            post_install: 
+                map: true
+            
+        
         Light_UserManager: 
-            version: 1.1.1
+            version: 1.2.1
             dependencies: 
                 Ling: 
                     - Light_User
@@ -849,7 +1017,7 @@ galaxies:
             post_install: []
         
         LingTalfi: 
-            version: 1.11.3
+            version: 1.11.5
             dependencies: 
                 Ling: 
                     - DocTools
@@ -960,6 +1128,11 @@ galaxies:
             dependencies: []
             post_install: []
         
+        MysqlCreateTableUtil: 
+            version: 1.0.2
+            dependencies: []
+            post_install: []
+        
         MysqlTabular: 
             version: 1.0.0
             dependencies: []
@@ -971,7 +1144,7 @@ galaxies:
             post_install: []
         
         NotationFan: 
-            version: 1.0.0
+            version: 1.0.1
             dependencies: []
             post_install: []
         
@@ -1040,6 +1213,16 @@ galaxies:
                 Ling: 
                     - DirScanner
                     - TokenFun
+                
+            
+            post_install: []
+        
+        ParametrizedSqlQuery: 
+            version: 1.2.0
+            dependencies: 
+                Ling: 
+                    - Bat
+                    - SqlQuery
                 
             
             post_install: []
@@ -1192,8 +1375,12 @@ galaxies:
             post_install: []
         
         QuickPdo: 
-            version: 2.41.0
-            dependencies: []
+            version: 2.41.1
+            dependencies: 
+                Ling: 
+                    - Bat
+                
+            
             post_install: []
         
         Quoter: 
@@ -1311,7 +1498,7 @@ galaxies:
             post_install: []
         
         SimplePdoWrapper: 
-            version: 1.0.0
+            version: 1.1.1
             dependencies: []
             post_install: []
         
@@ -1344,7 +1531,7 @@ galaxies:
             post_install: []
         
         SqlQuery: 
-            version: 1.9.1
+            version: 1.10.1
             dependencies: []
             post_install: []
         
@@ -1359,8 +1546,12 @@ galaxies:
             post_install: []
         
         SqlWizard: 
-            version: 1.0.0
-            dependencies: []
+            version: 1.1.0
+            dependencies: 
+                Ling: 
+                    - SimplePdoWrapper
+                
+            
             post_install: []
         
         StepFormBuilder: 
@@ -1439,6 +1630,16 @@ galaxies:
             dependencies: []
             post_install: []
         
+        TinyBullsheeter: 
+            version: 1.0.0
+            dependencies: 
+                Ling: 
+                    - BabyYaml
+                    - Bat
+                
+            
+            post_install: []
+        
         Tiphaine: 
             version: 1.0.0
             dependencies: []
@@ -1487,7 +1688,7 @@ galaxies:
             post_install: []
         
         Uni2: 
-            version: 1.9.0
+            version: 1.9.1
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1520,7 +1721,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.16.3
+            version: 1.16.4
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1573,10 +1774,20 @@ galaxies:
             post_install: []
         
         WebBox: 
-            version: 1.0.0
+            version: 1.0.1
             dependencies: 
                 Ling: 
                     - Bat
+                
+            
+            post_install: []
+        
+        WiseTool: 
+            version: 1.2.0
+            dependencies: 
+                Ling: 
+                    - Chloroform
+                    - Light_Kit_Admin
                 
             
             post_install: []
@@ -1607,7 +1818,7 @@ galaxies:
             post_install: []
         
         ZephyrTemplateEngine: 
-            version: 1.1.0
+            version: 1.1.2
             dependencies: 
                 Ling: 
                     - UniversalTemplateEngine
