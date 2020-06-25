@@ -1,6 +1,6 @@
 Uni2
 ===========
-2019-03-07
+2019-03-07 -> 2020-06-25
 
 
 
@@ -27,7 +27,7 @@ Or just download it and place it where you want otherwise.
 
 Summary
 ===========
-- [Uni2 api](https://github.com/lingtalfi/WebBox/blob/master/doc/api/Uni2.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
+- [Uni2 api](https://github.com/lingtalfi/Uni2/blob/master/doc/api/Ling/Uni2.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - [What is Uni2?](#what-is-uni2)
     - [Help](#help)
 - [The concepts behind Uni2](#the-concepts-behing-uni2)
@@ -896,6 +896,10 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
+- 1.9.3 -- 2020-06-25
+
+    - fix link to doc
+    
 - 1.9.2 -- 2019-08-30
 
     - fix typo

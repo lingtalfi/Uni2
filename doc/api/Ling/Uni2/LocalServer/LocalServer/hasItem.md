@@ -32,7 +32,7 @@ Parameters
 
 - dependencySystemName
 
-    The name of the dependency system. See the @page(dependency system page) for more details.
+    The name of the dependency system. See the [Uni2 documentation](https://github.com/lingtalfi/Uni2/blob/master/README.md) for more details.
 
 - packageSymbolicName
 

@@ -104,7 +104,7 @@ class LocalServer
      * Returns whether the local server has the given item.
      *
      * @param string $dependencySystemName
-     * The name of the dependency system. See the @page(dependency system page) for more details.
+     * The name of the dependency system. See the @page(Uni2 documentation) for more details.
      *
      * @param string $packageSymbolicName
      * @throws Uni2Exception. When the root dir is not set.
