@@ -131,7 +131,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ImportUtil::importItem](https://github.com/lingtalfi/Uni2/blob/master/Util/ImportUtil.php#L222-L529)
+See the source code for method [ImportUtil::importItem](https://github.com/lingtalfi/Uni2/blob/master/Util/ImportUtil.php#L222-L540)
 
 
 See Also
