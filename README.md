@@ -967,6 +967,10 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
+- 1.9.5 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.9.4 -- 2020-06-25
 
     - update documentation

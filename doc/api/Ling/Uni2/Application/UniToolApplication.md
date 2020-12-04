@@ -4,7 +4,7 @@
 
 The UniToolApplication class
 ================
-2019-03-12 --> 2020-06-25
+2019-03-12 --> 2020-12-04
 
 
 
@@ -67,6 +67,7 @@ class <span class="pl-k">UniToolApplication</span> extends [Application](https:/
 
 - Inherited properties
     - protected array [Application::$commands](#property-commands) ;
+    - protected string [Application::$defaultCommandAlias](#property-defaultCommandAlias) ;
     - protected [Ling\UniversalLogger\UniversalLoggerInterface](https://github.com/lingtalfi/UniversalLogger/blob/master/UniversalLoggerInterface.php) [AbstractProgram::$logger](#property-logger) ;
     - protected string [AbstractProgram::$loggerChannel](#property-loggerChannel) ;
     - protected bool [AbstractProgram::$errorIsVerbose](#property-errorIsVerbose) ;
@@ -191,6 +192,12 @@ Properties
     It's an array of command alias => command class name.
     
     Note: multiple aliases can reference the same command class name.
+    
+    
+
+- <span id="property-defaultCommandAlias"><b>defaultCommandAlias</b></span>
+
+    This property holds the defaultCommandAlias for this instance.
     
     
 
