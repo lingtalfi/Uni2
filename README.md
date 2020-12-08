@@ -967,6 +967,10 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
+- 1.9.6 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
 - 1.9.5 -- 2020-12-04
 
     - Add lpi-deps.byml file
