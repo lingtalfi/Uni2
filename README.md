@@ -40,7 +40,7 @@ Summary
     - [Meet the naive system](#meet-the-naive-system)
     - [Dependencies to non-planets](#dependencies-to-non-planets)
 - [The planet structure](#the-planet-structure)
-    - [meta-info.byml](#metainfobyml)
+    - [meta-info.byml](#meta-infobyml)
     - [dependencies.byml](#dependenciesbyml)
 - [The local server](#the-local-server)
     - [Introducing the local server](#introducing-the-local-server)
@@ -966,6 +966,10 @@ When triggered, the upgrade process does the following steps:
 
 History Log
 =============
+  
+- 1.9.8 -- 2021-01-21
+
+    - fix documentation link
   
 - 1.9.7 -- 2021-01-21
 

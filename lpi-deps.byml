@@ -141,3 +141,11 @@
     - Ling:Octopus:1.4.3+
     - Ling:UniverseTools:1.22.2+
     - Ling:DirScanner:1.13.3+
+
+1.9.8: 
+    - Ling:BabyYaml:1.7.5+
+    - Ling:Bat:1.301+
+    - Ling:CliTools:1.10.19+
+    - Ling:Octopus:1.4.3+
+    - Ling:UniverseTools:1.22.2+
+    - Ling:DirScanner:1.13.3+
