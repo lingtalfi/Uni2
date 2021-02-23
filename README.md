@@ -966,7 +966,11 @@ When triggered, the upgrade process does the following steps:
 
 History Log
 =============
-  
+
+- 1.9.9 -- 2021-02-23
+
+    - Update dependencies
+
 - 1.9.8 -- 2021-01-21
 
     - fix documentation link
