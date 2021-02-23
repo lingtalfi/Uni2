@@ -62,7 +62,7 @@ galaxies:
             post_install: []
         
         ArrayToString: 
-            version: 1.4.3
+            version: 1.4.4
             dependencies: []
             post_install: []
         
@@ -485,18 +485,17 @@ galaxies:
             post_install: []
         
         DocTools: 
-            version: 1.14.4
+            version: 1.14.7
             dependencies: 
                 Ling: 
-                    - Bat
-                    - TokenFun
-                    - DirScanner
-                    - UniverseTools
-                    - ReflectionTools
                     - ArrayToString
                     - ArrayToTable
-                    - ZeusTemplateEngine
+                    - Bat
+                    - DirScanner
                     - ParseDown
+                    - TokenFun
+                    - UniverseTools
+                    - ZeusTemplateEngine
                 
             
             post_install: []
@@ -1054,7 +1053,7 @@ galaxies:
             
         
         Light_AppBoilerplate: 
-            version: 1.0.26
+            version: 1.0.30
             dependencies: []
             post_install: 
                 map: true
@@ -1124,7 +1123,7 @@ galaxies:
             
         
         Light_Cli: 
-            version: 1.0.13
+            version: 1.0.15
             dependencies: 
                 Ling: 
                     - Bat
@@ -1139,7 +1138,7 @@ galaxies:
             
         
         Light_ControllerHub: 
-            version: 1.2.7
+            version: 1.2.9
             dependencies: 
                 Ling: 
                     - Bat
@@ -1257,17 +1256,17 @@ galaxies:
             
         
         Light_DbSynchronizer: 
-            version: 1.2.9
+            version: 1.2.11
             dependencies: 
                 Ling: 
+                    - Bat
                     - Light
                     - Light_Database
+                    - Light_DatabaseInfo
+                    - Light_Logger
                     - SimplePdoWrapper
                     - SqlWizard
                     - UniverseTools
-                    - Bat
-                    - Light_DatabaseInfo
-                    - Light_Logger
                 
             
             post_install: 
@@ -1291,28 +1290,28 @@ galaxies:
             
         
         Light_DeveloperWizard: 
-            version: 1.28.12
+            version: 1.28.14
             dependencies: 
                 Ling: 
                     - BabyYaml
                     - Bat
+                    - ClassCooker
+                    - Jquery
                     - Light
+                    - Light_ControllerHub
                     - Light_Database
+                    - Light_DatabaseInfo
+                    - Light_DbSynchronizer
+                    - Light_Kit_Admin
+                    - Light_Kit_Admin_Generator
+                    - Light_LingStandardService
+                    - Light_PluginInstaller
+                    - Light_UserDatabase
                     - SimplePdoWrapper
                     - SqlWizard
-                    - Light_Kit_Admin
-                    - Light_PluginInstaller
-                    - UniverseTools
-                    - ClassCooker
                     - TokenFun
+                    - UniverseTools
                     - WebWizardTools
-                    - Light_DbSynchronizer
-                    - Light_Kit_Admin_Generator
-                    - Light_DatabaseInfo
-                    - Light_LingStandardService
-                    - Light_UserDatabase
-                    - Light_ControllerHub
-                    - Jquery
                 
             
             post_install: 
@@ -1492,7 +1491,7 @@ galaxies:
             
         
         Light_Kit_Admin: 
-            version: 0.12.14
+            version: 0.12.16
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1560,17 +1559,17 @@ galaxies:
             
         
         Light_Kit_Admin_Generator: 
-            version: 1.19.7
+            version: 1.19.9
             dependencies: 
                 Ling: 
                     - BabyYaml
                     - Bat
+                    - Light_ControllerHub
                     - Light_Kit_Admin
                     - Light_RealGenerator
                     - Light_TablePrefixInfo
                     - SqlWizard
                     - UniverseTools
-                    - Light_ControllerHub
                 
             
             post_install: 
@@ -1734,7 +1733,7 @@ galaxies:
             
         
         Light_LingStandardService: 
-            version: 1.6.5
+            version: 1.6.7
             dependencies: 
                 Ling: 
                     - Light
@@ -1837,7 +1836,7 @@ galaxies:
             
         
         Light_PlanetInstaller: 
-            version: 1.0.11
+            version: 1.0.13
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1871,7 +1870,7 @@ galaxies:
             
         
         Light_PluginInstaller: 
-            version: 2.0.13
+            version: 2.0.15
             dependencies: 
                 Ling: 
                     - Bat
@@ -2235,7 +2234,7 @@ galaxies:
             post_install: []
         
         LingTalfi: 
-            version: 1.23.8
+            version: 1.23.10
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -3019,7 +3018,7 @@ galaxies:
             
         
         Uni2: 
-            version: 1.9.8
+            version: 1.9.9
             dependencies: 
                 Ling: 
                     - BabyYaml
