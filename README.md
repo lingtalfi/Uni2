@@ -967,11 +967,11 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
-- 1.9.10 -- 2021-02-23
+- 1.9.11 -- 2021-02-23
 
     - Update dependencies (pushed by SubscribersUtil)
 
-- 1.9.9 -- 2021-02-23
+- 1.9.10 -- 2021-02-23
 
     - Update dependencies (pushed by SubscribersUtil)
 

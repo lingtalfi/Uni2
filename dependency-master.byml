@@ -485,7 +485,7 @@ galaxies:
             post_install: []
         
         DocTools: 
-            version: 1.14.7
+            version: 1.14.8
             dependencies: 
                 Ling: 
                     - ArrayToString
@@ -1053,7 +1053,7 @@ galaxies:
             
         
         Light_AppBoilerplate: 
-            version: 1.0.30
+            version: 1.0.34
             dependencies: []
             post_install: 
                 map: true
@@ -1123,7 +1123,7 @@ galaxies:
             
         
         Light_Cli: 
-            version: 1.0.15
+            version: 1.0.16
             dependencies: 
                 Ling: 
                     - Bat
@@ -1138,7 +1138,7 @@ galaxies:
             
         
         Light_ControllerHub: 
-            version: 1.2.9
+            version: 1.2.10
             dependencies: 
                 Ling: 
                     - Bat
@@ -1256,7 +1256,7 @@ galaxies:
             
         
         Light_DbSynchronizer: 
-            version: 1.2.11
+            version: 1.2.12
             dependencies: 
                 Ling: 
                     - Bat
@@ -1290,7 +1290,7 @@ galaxies:
             
         
         Light_DeveloperWizard: 
-            version: 1.28.14
+            version: 1.28.15
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1491,7 +1491,7 @@ galaxies:
             
         
         Light_Kit_Admin: 
-            version: 0.12.16
+            version: 0.12.17
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1559,7 +1559,7 @@ galaxies:
             
         
         Light_Kit_Admin_Generator: 
-            version: 1.19.9
+            version: 1.19.10
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1733,7 +1733,7 @@ galaxies:
             
         
         Light_LingStandardService: 
-            version: 1.6.7
+            version: 1.6.8
             dependencies: 
                 Ling: 
                     - Light
@@ -1836,7 +1836,7 @@ galaxies:
             
         
         Light_PlanetInstaller: 
-            version: 1.0.13
+            version: 1.0.14
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -1870,7 +1870,7 @@ galaxies:
             
         
         Light_PluginInstaller: 
-            version: 2.0.15
+            version: 2.0.16
             dependencies: 
                 Ling: 
                     - Bat
@@ -2234,7 +2234,7 @@ galaxies:
             post_install: []
         
         LingTalfi: 
-            version: 1.23.10
+            version: 1.23.12
             dependencies: 
                 Ling: 
                     - BabyYaml
@@ -3018,15 +3018,15 @@ galaxies:
             
         
         Uni2: 
-            version: 1.9.9
+            version: 1.9.10
             dependencies: 
                 Ling: 
                     - BabyYaml
                     - Bat
                     - CliTools
+                    - DirScanner
                     - Octopus
                     - UniverseTools
-                    - DirScanner
                 
             
             post_install: []
@@ -3051,7 +3051,7 @@ galaxies:
             post_install: []
         
         UniverseTools: 
-            version: 1.22.26
+            version: 1.22.27
             dependencies: 
                 Ling: 
                     - BabyYaml
