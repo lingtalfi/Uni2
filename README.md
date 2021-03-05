@@ -1,6 +1,6 @@
 Uni2
 ===========
-2019-03-07 -> 2021-01-21
+2019-03-07 -> 2021-03-05
 
 
 
@@ -13,6 +13,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Uni2
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Uni2
@@ -966,6 +971,10 @@ When triggered, the upgrade process does the following steps:
 
 History Log
 =============
+
+- 1.9.12 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.9.11 -- 2021-02-23
 
