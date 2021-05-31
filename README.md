@@ -1,6 +1,6 @@
 Uni2
 ===========
-2019-03-07 -> 2021-03-05
+2019-03-07 -> 2021-05-31
 
 
 
@@ -972,6 +972,10 @@ When triggered, the upgrade process does the following steps:
 History Log
 =============
 
+- 1.9.13 -- 2021-05-31
+
+    - add DependencyMasterHelper::getDependencyMasterArrayFromWeb method
+  
 - 1.9.12 -- 2021-03-05
 
     - update README.md, add install alternative
